@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Classical Mechanics}{2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {1.1}}Newtonian Mechanics}{2}
+\contentsline {paragraph}{\numberline {a}Physical State}{2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {1.2}}Lagrangian Mechanics}{3}
+\contentsline {paragraph}{\numberline {a}Least Action Principle}{3}
+\contentsline {paragraph}{\numberline {b}Noether's Theorem}{3}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {1.3}}Hamiltonian Mechanics}{5}
+\contentsline {paragraph}{\numberline {a}Poisson Bracket}{7}
+\contentsline {section}{\numberline {2}Quantum Mechanics}{8}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {2.1}}Fundamentals of QM}{8}
+\contentsline {paragraph}{\numberline {a}Physical State}{8}
+\contentsline {paragraph}{\numberline {b}Observables}{8}
+\contentsline {paragraph}{\numberline {c}Transition Probability}{8}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {2.2}}Quantization}{9}
+\contentsline {paragraph}{\numberline {a}Expectation Value}{9}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {2.3}}Schr\"{o}dinger Equation}{10}
+\contentsline {paragraph}{\numberline {a}Momentum Operator}{11}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {2.4}}Quantum Symmetries}{13}
+\contentsline {section}{\numberline {3}Group}{15}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {3.1}}Definitions \& Some examples}{15}

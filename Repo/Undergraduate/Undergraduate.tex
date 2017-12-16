@@ -1,0 +1,124 @@
+\documentclass[a4,portrait,semrot]{seminar}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{kotex}
+\usepackage[skip=4pt]{caption}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{units}
+\usepackage{array}
+
+
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\pagestyle{empty}
+\renewcommand{\printlandscape}{\special{landscape}}
+\slideframe{none}
+\centerslidesfalse
+\slidesmag{3}
+\setlength{\slideheight}{183mm}
+\setlength{\slidewidth}{264mm}
+
+\makeatletter
+\newcommand{\armultirow}[3]{%
+  \multicolumn{#1}{#2}{%
+    \begin{picture}(0,0)%
+      \put(0,0){%
+        \begin{tabular}[t]{@{}#2@{}}%
+          #3%
+        \end{tabular}%
+      }%
+    \end{picture}%
+  }%
+}%
+
+\newcolumntype{f}{>{$}l<{$}}
+\newcolumntype{n}{l}
+\newcolumntype{N}{>{\scriptsize}l}
+\newcolumntype{v}[1]{>{\raggedright\hspace{0pt}}p{#1}}
+\newcolumntype{V}[1]{>{\scriptsize\raggedright\hspace{0pt}}p{#1}}
+%
+% array.sty, dcolumn.sty
+\newcolumntype{B}[1]{>{\boldmath\DC@{.}{,}{#1}}l<{\DC@end}}
+\newcolumntype{d}[1]{>{\DC@{.}{,}{#1}}l<{\DC@end}}
+\newcolumntype{i}[1]{>{\DC@{.}{,}{#1}\mathnormal\bgroup}l<{\egroup\DC@end}}
+\newcolumntype{s}[1]{>{\DC@{.}{,}{#1}\mathsf\bgroup}l<{\egroup\DC@end}}
+%
+% array.sty, rotating.sty
+\newcolumntype{R}[1]{%
+  >{\begin{turn}{90}\begin{minipage}{#1}\scriptsize\raggedright\hspace{0pt}}l%
+  <{\end{minipage}\end{turn}}%
+}
+%
+% array.sty, tabularx.sty
+\newcolumntype{x}{>{\scriptsize\raggedright\hspace{0pt}}X}
+\makeatother
+\begin{document}
+\begin{slide*}
+  \begin{table}[h]
+    \centering
+    \caption{Undergraduate History}
+    \label{tab:und}
+    \begin{tabular}{@{}v{7em}c c cn@{}}
+      \toprule
+        &
+        \multicolumn{1}{N@{}}{Curriculum}&
+        \multicolumn{2}{N@{}}{Study}\\
+      \cmidrule(l){2-2}\cmidrule(l){3-4}
+        &
+        \multicolumn{1}{V{12em}}{Subject} &
+        \multicolumn{1}{V{12em}}{Physics}    &
+        \multicolumn{1}{V{12em}}{Mathematics}\\
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}%
+        \armultirow{1}{@{}v{7em}}{Freshman \RNum{1}} &
+          Calculus \RNum{1} & Nothing & Calculus \\
+        & General Physics \RNum{1} &  \\
+        & General Chemistry \RNum{1} &  \\
+      \addlinespace
+        \armultirow{1}{@{}v{7em}}{Freshman \RNum{2}} &
+          Calculus \RNum{2}& Nothing & Nothing\\
+        & General Physics \RNum{2}&  \\
+        & General Chemistry \RNum{2}&  \\
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+        \armultirow{1}{@{}v{7em}}{Sophomore \RNum{1}} &
+          ODE  & Classical Mechanics & Linear Algebra \\
+        & Linear Algebra \RNum{1} & (\textit{Landau}) \\
+        & Classical Mechanics \RNum{1} &  \\
+      \addlinespace
+      \armultirow{1}{@{}v{7em}}{Sophomore \RNum{2}} &
+          Analysis \RNum{1} & Classical Field Theory & Analysis (Real \& Fourier) \\
+        & Fourier Analysis & (\textit{Landau}) \\
+        & Classical Mechanics \RNum{2} & Classical Mechanics  \\
+        & & (\textit{Goldstein})\\
+      \addlinespace
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+      \armultirow{1}{@{}v{7em}}{Junior \RNum{1}} &
+          Abstract Algebra \RNum{1}  & Quantum Mechanics & Abstract Algebra \\
+        & Differential Geometry \RNum{1} & (\textit{Ashok Das}) \\
+        & Quantum Mechanics \RNum{1} &  General Relativity \\
+        & & (\textit{Hobson})\\
+      \addlinespace
+      \armultirow{1}{@{}v{7em}}{Junior \RNum{2}} &
+          Analysis \RNum{2}  & General Relativity & Tensor Analysis \\
+        & Topology & (\textit{Harvey Reall}) & Topology\\
+        & Solid State Physics \RNum{1} &  Quantum Mechanics \\
+        & & (\textit{Ashok Das})\\
+      \addlinespace
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+      \armultirow{1}{@{}v{7em}}{Senior \RNum{1}} &
+          Scientific Computing & Quantum Field Theory & Nothing \\
+        & Quantum Field Theory \RNum{1} & (\textit{David Tong, Ryder}) & \\
+        & (Grad)Quantum Mechanics \RNum{2} &  \\
+      \addlinespace
+      \armultirow{1}{@{}v{7em}}{Senior \RNum{2}} &
+          Introduction to Cosmology & General Relativity & Nothing \\
+        & Introduction to General Relativity & (\textit{Harvey Reall}) & \\
+        & High Energy Physics \RNum{2} & Quantum Field Theory\\
+        & Selected Topics in Theoretical Physics& (\textit{Peskin})\\
+      \addlinespace
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{slide*}
+
+\end{document}

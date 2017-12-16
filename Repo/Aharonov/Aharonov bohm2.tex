@@ -1,0 +1,192 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose,
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\graphicspath{{C:/Users/태근/Desktop/Aharonov}}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{csquotes}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage{tensor}
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+%\usepackage[showframe,%Uncomment any one of the following lines to test
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{Geometric phase and its application: Aharonov Bohm effect\\
+with path integral approach }% Force line breaks with \\
+
+\author{Tae-Geun Kim}
+\email{edeftg@naver.com}
+\affiliation{%
+ Department of Astronomy and Mathematics,\\
+Yonsei University\\
+}%
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+Geometric Phase is one of the most important physical concept in modern physics. Geometric phase is still used in many, various fields, and its application is also dealt as important phenomenon. Aharonov Bohm effect (AB effect), one of the most interesting phenomenons in electromagnetism, is great example to understand geometric phase. And as befits its status, there are many various methods to approach it. One of them is the Path integral and it is the greatest tool to see Quantum Mechanics. Therefore this paper provides a brief explanation of the Aharonov Bohm effect using a path integral approach and connection between geometric phase and Aharonov Bohm effect.
+
+\end{abstract}
+
+\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
+                             % Classification Scheme.
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+\maketitle
+
+%\tableofcontents
+
+\section{\label{sec:level1}Introduction}
+
+In 1984, Sir M. V. Berry reinforced S. Pancharatnam's idea \cite{Berry, Pancharatnam}. Berry suggests there is a phase difference over a adiabatic process cycle, and it is caused from geometric properties of the parameter space of Hamiltonian. It is usually called as the Berry phase or Geometric phase. Berry phase is used in various field. For examples, in classical mechanics there is the Foucault's pendulum problem \cite{Foucault}, in quantum electromagnetism there are Aharonov Bohm effect (AB effect) and Dirac monopole. Specifically, AB effect is well known phenomena as good application of berry phase, thus, in this paper, we focus on AB effect.
+
+Understanding AB effect starts from an important question in electromagnetism - Is the vector potential real? It's easy to find that this question is reasonable. There is no evidence of vector potential really affects to real in equation of motion of electromagnetism (Lorentz force), there are just electric field and magnetic field in EOM. In fact, it was not until 1959 that a method was devised for demonstrating the physical reality of the vector potential. It could be demonstrated at last by two great physicists in Bristol - Y. Aharonov and D. Bohm \cite{Aharonov}. They solved this problem by proposing double slit experiment with tiny and completely sealed solenoid. Then there is no magnetic field at external space of solenoid, so there should be no disturbance of interference fringe classically. But in real, there is disturbance, so it must be evidence of physical reality of vector potential. To understand this, we use powerful tool to Quantum mechanics - The path integral.\\
+
+\section{\label{sec:level2}Brief introduction for Path integral}
+
+The path integral formulation is a quantum theory which generalizes the action principle of classical mechanics. More simply, its purpose is to calculate transition amplitude by obtain every possible paths. The transition amplitude is defined as follows.
+\begin{equation}\label{eq:1}
+U(t_f, x_f ; t_i, x_i)= \tensor[_H]{\braket{x_f, t_f | x_i, t_i}}{_H}
+\end{equation}
+The states are time dependent - Heisenberg picture. Let consider infinitesimal time variation.
+(\(\epsilon=\frac{t_f-t_i}{N}, \quad t_n=t_i+n\epsilon \quad (n=1,2,\cdots,N-1)\))
+\begin{multline}\label{eq:2}
+U(t_f, x_f ; t_i, x_i) = \\\lim_{\substack{\epsilon \to 0 \\ N \to \infty}}\int dx_1 \cdots dx_{N-1} \tensor[_H]{\braket{x_f,t_f|x_{N-1},t_{N-1}}}{_H}\times \\ \tensor[_H]{\braket{x_{N-1},t_{N-1}|x_{N-2},t_{N-2}}}{_H}\times \cdots \times \tensor[_H]{\braket{x_1,t_1|x_i,t_i}}{_H}\\
+\end{multline}
+Let consider relation between Heisenberg picture and Schr{\"o}dinger picture. (\(\bar{x}_n = \frac{x_n+x_{n-1}}{2}\))
+\begin{multline*}
+\tensor[_H]{\braket{x_n,t_n|x_{n-1},t_{n-1}}}{_H}=\bra{x_n}e^{-\frac{i}{\hbar}(t_n-t_{n-1})H}\ket{x_{n-1}}
+\\=\bra{x_n}e^{-\frac{i\epsilon H}{\hbar}}\ket{x_{n-1}}=\int \frac{dp_n}{2\pi\hbar}e^{\frac{i}{\hbar}(x_n-x_{n-1})P}e^{-\frac{i}{\hbar}H(\bar{x}_n,p_n)}
+\end{multline*}
+Thus, let substitute this to \eqref{eq:2} then we can get following equation. (\(x_0=x_i, \quad x_N=x_f, \quad \mathcal{D}x=dx_1 \cdots dx_{N-1}\))
+\begin{multline}\label{eq:3}
+U=\lim_{\substack{\epsilon \to 0 \\ N \to \infty}}\int \mathcal{D}x\frac{dp_1}{2\pi\hbar}\cdots\frac{dp_n}{2\pi\hbar}
+e^{\frac{i}{\hbar}\sum_{n=1}^{N}((x_n-x_{n-1})P_n-\epsilon H)}
+\end{multline}
+Let concentrate to the phase factor.
+\begin{multline}\label{eq:4}
+\lim_{\substack{\epsilon \to 0 \\ N \to \infty}}\frac{i}{\hbar}\sum_{n=1}^{N}(x_n-x_{n-1})P_n-\epsilon H\\=\lim_{\substack{\epsilon \to 0 \\ N \to \infty}}\frac{i}{\hbar}\sum_{n=1}^{N}(\frac{x_n-x_{n-1}}{\epsilon})P_n-\epsilon H\\=\frac{i}{\hbar}\int_{t_i}^{t_f}(P\dot{x}-H)dt = \frac{i}{\hbar}\int_{t_i}^{t_f}\mathcal{L}dt=\frac{i\mathcal{S}}{\hbar}
+\end{multline}
+If hamiltonian is \(H=\frac{P^2}{2m}+V\), then integration for $P$ becomes gaussian, so $P$ dependence is vanished. Thus, we can rewrite \eqref{eq:3}.
+\begin{equation}\label{eq:5}
+U(t_f,x_f;t_i,x_i)=A\int \mathcal{D}x\ e^{\frac{i}{\hbar}\mathcal{S}[x]}
+\end{equation}
+For free particle, \(A = (\frac{m}{2\pi i\hbar (t_f-t_i)})^{\frac{1}{2}}\).
+
+\section{\label{sec:level3}Path integral approach to Aharonov Bohm effect}
+
+Let consider action of electromagnetic interaction. The action is given as:
+\begin{equation}
+\mathcal{S}=\mathcal{S}_0 + \int_{0}^{t} \frac{q}{c}A_i\frac{dx^i}{dt}dt \simeq \mathcal{S}_0 + \frac{iq}{\hbar c}\int_{A}^{B} A_i\ dx^i
+\end{equation}
+Then let's get down to the main experiment. Let's see the figure~\ref{fig:1}.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=9cm, height=5cm]{AB.png}
+    \caption{Aharonov-Bohm double slit experiment}
+    \label{fig:1}
+\end{figure}
+
+Figure~\ref{fig:1} is simple diagram of Aharonov-Bohm experiment. The description of experiment is: \cite{experiment}
+\begin{quote}
+\textit{Consider the above plan view of the classic double-slit experiment, consisting of a source P of identical particles
+each having a charge q (electrons will do nicely), an impenetrable screen with two closely-spaced, narrow slits,
+and a detector Q. In practice, the slit widths will be on the order of several microns, separated by a section of
+screen of comparable dimension. Such small distances are necessary in view of the quantum nature of the double
+slit experiment itself. In addition, we place a solenoid ($\it\Phi$) immediately behind the slit separation. The solenoid
+itself must be extremely small, and the ends must be shielded in such a way as to prevent any ‘‘fringe’’ interaction
+with the charged particles.}
+\end{quote}
+
+Since the solenoid is completely shielded, there is no magnetic field in outside of solenoid, so there shouldn't be any "fringe" interaction in classical mechanics. But in quantum world, it's trivial to exist a fringe interaction. Before dealing with AB effect, let consider path integral for two path free particle. By \eqref{eq:5}, transition amplitudes for each path is given as:
+\begin{equation}\label{eq:7}
+\begin{split}
+&U_1=A\int_{\gamma_1}\mathcal{D}x\ e^{\frac{i\mathcal{S}_0}{\hbar}}\\
+&U_2=A\int_{\gamma_2}\mathcal{D}x\ e^{\frac{i\mathcal{S}_0}{\hbar}}
+\end{split}
+\end{equation}
+Since, these paths are free particle's so, we can separate $U$ as amplitude term and phase term. 
+\begin{equation}\label{eq:8}
+\begin{split}
+&U_1=\Big(\frac{m}{2\pi i\hbar t}\Big)^{\frac{1}{2}}\exp\Big(\frac{i\theta_1}{\hbar}\Big)\\
+&U_2=\Big(\frac{m}{2\pi i\hbar t}\Big)^{\frac{1}{2}}\exp\Big(\frac{i\theta_2}{\hbar}\Big)
+\end{split}
+\end{equation}
+Thus the total transition amplitude \(U=U_1+U_2\) is obtained: (
+\begin{equation}
+U=\Big(\frac{m}{2\pi i\hbar t}\Big)^{\frac{1}{2}}\exp\Big(\frac{i\theta_1}{\hbar}\Big)[1+\exp(i\Delta)]
+\end{equation}
+
+\begin{thebibliography}{9}
+\bibitem{Berry}
+M.V. Berry. \textit{Quantal Phase Factors Accompanying Adiabatic Changes} Proc. Roy. Soc. London A 392, 45 (1984).
+
+\bibitem{Pancharatnam}
+S. Pancharatnam, Proceedings of the Indian Academy in Sciences, 44, 247 (1956).
+
+\bibitem{Foucault}
+J.H. Hannay, J. Phys. A: Math. Gen. 18, 221 (1985).
+
+\bibitem{Aharonov}
+Y. Aharonov, D. Bohm. \textit{Signiﬁcance of electromagnetic potentials in the quantum theory.} Phys. Rev. 115(3):485, (1959).
+
+\bibitem{experiment}
+Tonomura, A. et al. \textit{Evidence for Aharonov-Bohm effect with magnetic field completely shielded from electron wave.} Phys. Rev. 56: 792$-$795 (1986).
+
+\end{thebibliography}
+\end{document}
+%
+% ****** End of file apssamp.tex ******

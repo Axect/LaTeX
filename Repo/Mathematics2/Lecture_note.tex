@@ -1,0 +1,327 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{amssymb}
+\usepackage{kotex}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage[normalem]{ulem}
+\usepackage{mdframed}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{tensor}
+\usepackage{setspace}
+\usepackage{twoopt}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION & THEOREM
+%----------------------------------------------------------------------------------------
+
+\theoremstyle{plain}
+\newmdtheoremenv{dfn}{Definition}[section]
+\newcommand{\bigdef}[2]{\index{#1}\begin{dfn} {\rm #2} \end{dfn}}
+\newcommand{\smalldef}[1]{\index{#1} {\em #1}}
+\newmdtheoremenv{thm}[dfn]{Theorem}
+\newmdtheoremenv{exmp}[dfn]{Example} % same for example numbers
+\newmdtheoremenv{lem}[dfn]{Lemma}
+\newmdtheoremenv{cor}[dfn]{Corollary}
+\renewcommand{\qed}{\hfill $\Box$}
+\renewenvironment{proof}{\par{\bf Proof:}}{\qed \par}
+
+%----------------------------------------------------------------------------------------
+%	BLANCK COMMAND
+%----------------------------------------------------------------------------------------
+
+\newcommand{\Com}{,\Hs}
+\newcommand{\Hs}{\hspace{0.1cm}}
+\newcommand{\HS}{\hspace{0.5cm}}
+\newcommand{\Vs}{\vspace{0.1cm}}
+\newcommand{\VS}{\vspace{0.3cm}}
+
+%----------------------------------------------------------------------------------------
+%	DIFFERENTIATE COMMAND
+%----------------------------------------------------------------------------------------
+
+\newcommand{\OD}[2]{\frac{d #1}{d #2}}
+\newcommand{\PD}[2]{\frac{\partial #1}{\partial #2}}
+
+%----------------------------------------------------------------------------------------
+%	ETC COMMAND
+%----------------------------------------------------------------------------------------
+
+\newcommand{\BKS}[1]{\left( #1 \right)}
+
+%----------------------------------------------------------------------------------------
+%	MATH COMMAND
+%----------------------------------------------------------------------------------------
+\newcommand{\St}{\Hs such \Hs that \Hs}
+\newcommand{\Nb}[1][A]{n(#1)}
+\newcommand{\nin}{\notin}
+\newcommand{\nsubset}{\not\subset}
+\newcommand{\Set}[1]{\{ #1 \}}
+\newcommand{\CSet}[2][x]{\{#1 | #2 \}}
+\newcommand{\A}{$A$}
+\newcommand{\B}{$B$}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommandtwoopt{\Commutator}[2][X][Y]{\left[ #1 \Com #2 \right] }
+\newcommandtwoopt{\RCommutator}[3][X][Y]{#1\BKS{#2(#3)} - #2\BKS{#1(#3)}}
+\newcommandtwoopt{\ECommutator}[2][X][Y]{\BKS{#1^\nu \PD{#2^\mu}{x^\nu} - #2^\nu \PD{#1^\mu}{x^\nu}}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Deparment of physics, Yonsei University} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Advanced Mathematics 2\\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Axect} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	SECTION 0
+%----------------------------------------------------------------------------------------
+
+\section{Basic Notation}
+\VS\VS
+\begin{itemize}
+ \item $\N$ : Natural number (자연수), $\Z$ : Integer (정수), $\Q$ : Rational number (유리수), \newline
+ $\R$ : Real number (실수), $\C$ : Complex number (복소수)
+ \item $\forall$ : For any (모든) \HS ex) $\forall x \in \N \Com x>0$
+ \item $\exists$ : Exist (존재하다) \HS ex) $\exists x \in \N \Hs such \Hs that \Hs x>10$
+ \item $\nexists$ : Not exist (존재하지 않는) \HS ex) $\nexists x \in \N \Hs such \Hs that\Hs x \leq 0$
+ \item $\exists !$ : Uniquely exist (하나만 존재) \HS ex) $\exists ! x \in \N \Hs such \Hs that \Hs x \leq 1$
+ \item $\alpha\Com\beta\Com\gamma$ : Alpha, Beta, Gamma (다 알겠죠?)
+ \item $\phi$ : Phi (파이)$ -$ 집합에서는 공집합으로 쓰임. ($\pi$ (=Pi) 와는 다름)
+ \item $\theta$ : Theta (세타) $-$ 보통 각도로 많이 쓰임.
+ \item $\omega$ : Omega (오메가) $-$ \Hs $x^3 = \pm 1$ 의 허근이나 각도의 변화율을 나타낼 때 쓰임.
+ \item $\Sigma$ : Sigma (시그마) $-$ 시그마의 대문자. 수학에서 수열의 합을 의미함.
+ \item \textbf{Definition} : 정의 $-$ 받아들여야 하는 수학적 사실.
+ \item \textbf{Theorem} : 정리 $-$ 정의로부터 도출가능한 명제.
+ \item \textbf{Corollary} : 따름정리 $-$ 정리로부터 즉시 도출되는 명제. 
+\end{itemize}
+
+\pagebreak
+
+\section{Set Theory}
+\subsection{Basis of Set}
+
+\onehalfspacing
+\VS
+\begin{quote}
+ \textit{A set is a gathering together into a whole of definite, distinct objects of our perception or of our thought—which are called elements of the set.}
+ \HS - Georg Cantor.
+\end{quote}
+
+\vspace{0.3cm}
+\HS 집합이란, 수학적으로 정의될 수 있는 서로 다른 것들의 모임이다. 이때, 집합을 구성하는 요소들을 원소라고 부른다. 이때, 원소는 숫자, alphabet, 한글, 사람, 동물 등등 수학적으로 정의가능한 것이기만 하면 된다.
+집합을 표현할 때는 두 가지 방법이 있다.
+
+\begin{enumerate}
+ \item 원소나열법 : $A = \Set{a\Com b\Com c\Com d}$
+ \item 조건제시법 : $A = \CSet[x]{p(x) = True}$
+\end{enumerate}
+
+\vspace{0.3cm}
+즉, 원소와 집합의 관계를 제대로 정의하면 다음과 같다.
+
+\bigdef{1}{
+$A = \CSet{p(x) = True}$ 인 집합 $A$에 대하여 원소 $a$ 는 $a \in A$ 라고 쓰며 $p(a)=True$를 만족한다. 즉, 
+ \begin{equation*}
+  a \in A \Leftrightarrow p(a) = True
+ \end{equation*}
+}
+
+좀 더 쉽게 이해하기 위하여 예를 들어보자.
+\begin{exmp}
+ 다음 집합 A를 조건제시법으로 나타내어라.
+ \begin{equation*}
+  A = \Set{1\Com2\Com3\Com\cdots\Com10}
+ \end{equation*}
+ \textnormal{: $A$의 원소들의 조건 $p(x)$ 는 10이하의 자연수이면 된다. 따라서 다음과 같이 적으면 된다.}
+ $A = \CSet{x\leq10\Com x\in\N}$
+\end{exmp}
+
+\vspace{0.2cm}
+
+\begin{exmp}
+ $B = \CSet[(x,y)]{x^2 + y^2 \leq 4\Com x\in\Z\Com y\in\Z}$ 의 원소의 개수는 몇 개 인지 구하시오.
+ 
+ \VS
+ 
+ \textnormal{: $B$의 조건 $p((x,y))$가 나타내는 범위는 중심이 $(0,0)$이고 반지름이 $2$인 원의 내부이다. 이때, $x,y\in\Z$이므로 13개이다. 
+ (자세한 설명은 생략함.)}
+\end{exmp}
+\pagebreak
+
+\paragraph{$-$Subset (부분집합)}
+
+부분집합의 정의는 다음과 같다.
+
+\bigdef{2}{두 집합 $A,B$에 대하여 \A의 모든 원소가 \B에 들어갈 때 $A \subset B$ 라고 쓰며 \A는 \B의 부분집합이라고 부른다. 즉,
+\begin{equation*}
+ \forall x\in A\Com x\in B \HS \Leftrightarrow \HS A\subset B
+\end{equation*}
+}
+\begin{thm}
+\label{thm:1}
+ 두 집합  $A,B$에 대하여 다음의 두 명제는 같은 명제이다.
+ \begin{equation*}
+  \exists x\in A\Hs such\Hs that\Hs x\nin B \HS \Leftrightarrow \HS A \nsubset B
+ \end{equation*}
+\end{thm}
+
+\begin{cor}
+ 공집합 $\phi$는 모든 집합의 부분집합이다.
+\end{cor}
+
+\begin{proof}
+ \HS 우리가 증명하려는 것은 임의의 집합 \A에 대하여 $\phi \subset A$이다. $\phi\nsubset A$라고 가정해보자.
+ \ref{thm:1}에 따르면 \Hs $\exists x \in \phi \St x \nin A$ 이어야 하지만, 공집합에는 아무런 원소가 없다. 즉, 모순이다.
+ 따라서 모든 집합에는 부분집합으로 $\phi$가 존재한다.
+\end{proof}
+
+\begin{thm}
+ \label{thm:2}
+ 두 집합 $A,B$에 대하여 $A \subset B$ 이고 $B \subset A$이면 $A=B$이다.
+\end{thm}
+\VS
+\begin{exmp}
+ $A=\CSet{ax^2+bx+c\geq 0, p(a,b,c)=True}$에 대하여 집합 $A=\R$이려면 $p(a,b,c)$를 구하시오.
+ 
+ \VS
+ 
+ : $A=\R$ 은 $\R \subset A$ 의 의미를 내포하므로 모든 실수에 대하여 조건이 만족하여야 한다. 주어진 이차부등식이 모든 실수에 대하여 만족하려면,
+ $a>0\Com b^2 -4ac\leq 0$이어야 한다. 
+\end{exmp}
+
+\VS
+
+\begin{dfn}
+  집합 \A에 대하여 \A의 원소의 개수를 $\Nb$라고 정의한다.
+\end{dfn}
+
+\VS
+
+\begin{thm}
+ \begin{enumerate}
+  \item $\Nb[\phi] = 0$
+  \item $A \subset B$이면, $\Nb \leq \Nb[B]$이다.
+ \end{enumerate}
+
+\end{thm}
+
+\pagebreak
+
+\paragraph{$-$ Supplement}
+
+\begin{thm}
+ $\Nb = n$인 집합 \A의 부분집합의 개수는 $2^n$이다.
+\end{thm}
+
+\begin{proof}
+ \A의 부분집합은 \A의 각각의 원소들을 포함할 수도 있고 포함하지 않을 수도 있다. 즉, 하나의 원소에 대하여 포함하거나 포함하지 않는 2가지의 선택지가
+ 있는데, 원소가 총 $n$개 있으므로 총 부분집합의 개수는 $2^n$이 된다.
+\end{proof}
+
+\Vs
+
+\begin{cor}
+ 원소가 $n$개인 집합 \A에 대하여 $m$개의 특정 원소를 포함하거나 포함하지 않는 부분집합의 개수는 $2^{n-m}$이다. 
+\end{cor}
+\begin{proof}
+ Do It Yourself.
+\end{proof}
+
+\VS
+
+\begin{exmp}
+다음 명제의 참, 거짓을 판별하시오.
+\begin{equation*}
+ \Nb = \Nb[B] \Rightarrow A=B
+\end{equation*}
+
+\VS
+
+\textnormal{: 원소 수가 같다고 안에 있는 원소종류가 같은 것은 아니므로 위 명제는 거짓이다.} 
+\end{exmp}
+
+\VS
+
+\begin{exmp}
+ 집합 $S = \{1,2,3\}$의 두 부분집합 \A, \B에 대하여 $A\subset B\subset S$를 만족시키는 두 집합 \A, \B의 순서쌍 $\BKS{A,B}$의 개수를 구하여라.
+ \VS
+ 
+ \textnormal{: $n(A)=0\Com 1\Com 2\Com 3$일 때로 나누어 풀어보면 쉽다. 답은 27}
+\end{exmp}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

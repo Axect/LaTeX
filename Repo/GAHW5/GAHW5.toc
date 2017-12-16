@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}BPT Diagram}{1}{section.1}
+\contentsline {section}{\numberline {2}Fraction of Early type's emission lines}{1}{section.2}
+\contentsline {section}{\numberline {3}Fraction of Late type's emission lines}{3}{section.3}

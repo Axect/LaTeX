@@ -1,0 +1,5 @@
+그림 2를 보면 E5를 제외하고는 각각의 morphology type마다 어느 정도 비율의 차이는 존재하나 거의 비슷한 양상을 하고 있음을 확인할 수 있다. Early type의 경우 Later type과 비교했을 때 무엇보다 weak emission line의 비율이 매우 높고, star forming이 매우 약해진 것이 바로 보이는데, 이는 각각의 Spiral에서 Elliptical로 가면서 star forming이 줄어들고 AGN(Active Galactic Nucleus)이 힘을 잃어 radiation의 방출이 약해지는 것으로 해석할 수 있다. AGN의 약화로 인한 현상은 LINER(Low Ionization Nuclear Emission line Resion)의 약화로도 설명이 가능한데, AGN의 활동 정도에 따라 약하게 이온화된 가스들에서 나오는 방출선이 줄어드는 것으로 Spiral에서 Elliptical 사이의 변화를 추론해 볼 수 있다.
+
+Spiral에서 Elliptical의 진화방향을 따라가면, 위와 같은 흐름을 확인할 수 있었다. 이번에는 Elliptical의 경우만 생각해보자. 급격한 변화양상을 보이는 Spiral과는 다르게 Elliptical의 경우는 7번째 자료인 total 값과 나머지를 비교하여 보아도 큰 차이가 없는 것처럼 눈에 보이는 확실한 차이는 없다. 이는 은하의 morphology가 Elliptical로 들어서면서 더이상의 변화가 없어졌다는 해석이 되고, 이는 Spiral과 가장 큰 차이인 Star forming에서 근거를 찾을 수 있다. 이해를 돕기 위해 S0의 모습과도 비교했는데, 결국 Spiral에서 Elliptical로 진화가 되어가며 Star forming과 AGN이 힘을 잃어가며 진화가 멈추어감을 생각할 수 있다.
+
+결국 Early type은 Elliptical만의 morphology에 대해서 각 형태별로 특별한 작용이나 진화단계에 있는 것이 아닌 단순히 Spiral에서 진화한 단계로 이심률의 차이만 있는 것으로 해석되며 Early type 내의 진화 방향은 보이지 않음을 확인할 수 있다.

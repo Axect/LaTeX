@@ -1,0 +1,221 @@
+WinEdt Shortcut List (Readonly)
+===============================
+
+Wednesday, November 30, 2016 at 9:57
+Number of Shortcuts: 215
+
+BkSp                   Shortcuts|Backspace
+BkSp+Alt               Alternatives|Undo
+BkSp+Ctrl              Shortcuts|Delete Word Left
+BkSp+Shift             Shortcuts|Backspace + Shift
+BkSp+Shift+Alt         Alternatives|Redo
+BkSp+Shift+Ctrl        &Search|&Bookmarks|Move Ring &Backward
+Del                    &Edit|&Delete
+Del+Ctrl               Shortcuts|Delete Word Right
+Del+Shift              Alternatives|Cut
+Del+Shift+Ctrl         &Search|&Bookmarks|Move Ring &Forward
+Down                   Shortcuts|Line Down
+Down+Alt               &Edit|&Change Case|&Toggle Case
+Down+Ctrl              Shortcuts|Par Down
+Down+Ctrl+Alt          &Edit|&Change Case|&Lower Case
+Down+Shift             Shortcuts|Select Line Down
+Down+Shift+Ctrl        Shortcuts|Select Par Down
+Down+Shift+Ctrl+Alt    &Edit|&Change Case|Toggle &Character
+End                    Shortcuts|Go To End Of Line
+End+Alt                Shortcuts|Screen Refresh
+End+Ctrl               Shortcuts|Go To End Of File
+End+Shift              Shortcuts|Select To End Of Line
+End+Shift+Alt          Shortcuts|Clear Right
+End+Shift+Ctrl         Shortcuts|Select To End Of File
+Enter                  Shortcuts|Enter
+Enter+Alt              &Tools|&Abbreviation
+Enter+Ctrl             &Tools|&Complete Word
+Enter+Ctrl+Alt         &Tools|&Thesaurus
+Enter+Shift            &Tools|Check &Word
+Enter+Shift+Alt        &Macros|&Active String
+Enter+Shift+Ctrl       Shortcuts|Enter (%%)
+Esc                    Shortcuts|Escape
+Esc+Shift              Shortcuts|Cancel
+Home                   Shortcuts|Go To Beginning Of Line
+Home+Alt               Shortcuts|Screen Center Line
+Home+Ctrl              Shortcuts|Go To Beginning Of File
+Home+Shift             Shortcuts|Select To Beginning Of Line
+Home+Shift+Alt         Shortcuts|Clear Left
+Home+Shift+Ctrl        Shortcuts|Select To Beginning Of File
+Ins                    Shortcuts|Insert
+Ins+Alt                Alternatives|Append
+Ins+Ctrl               Alternatives|Copy
+Ins+Ctrl+Alt           &Edit|&Format|Format &Paragraph
+Ins+Shift              Alternatives|Paste
+Ins+Shift+Alt          &Edit|&Format|&Wrap Paragraph
+Ins+Shift+Ctrl         &Edit|&Format|&Select Paragraph
+Ins+Shift+Ctrl+Alt     &Edit|&Format|Format &Document
+Left                   Shortcuts|Char Left
+Left+Alt               &Edit|&Move / Fill|Move &Left
+Left+Ctrl              Shortcuts|Word Left
+Left+Ctrl+Alt          &Edit|&Move / Fill|&Remove String...
+Left+Shift             Shortcuts|Select Char Left
+Left+Shift+Alt         &Edit|&Format|Flush &Left
+Left+Shift+Ctrl        Shortcuts|Select Word Left
+Left+Shift+Ctrl+Alt    &Edit|&Move / Fill|R&emove Comment
+PgDn                   Shortcuts|Page Down
+PgDn+Alt               Shortcuts|Screen Line To Bottom
+PgDn+Ctrl              Shortcuts|Go To End Of File
+PgDn+Shift             Shortcuts|Select Page Down
+PgDn+Shift+Ctrl        Shortcuts|Select To End Of File
+PgUp                   Shortcuts|Page Up
+PgUp+Alt               Shortcuts|Screen Line To Top
+PgUp+Ctrl              Shortcuts|Go To Beginning Of File
+PgUp+Shift             Shortcuts|Select Page Up
+PgUp+Shift+Ctrl        Shortcuts|Select To Beginning Of File
+Right                  Shortcuts|Char Right
+Right+Alt              &Edit|&Move / Fill|&Move Right
+Right+Ctrl             Shortcuts|Word Right
+Right+Ctrl+Alt         &Edit|&Move / Fill|&Insert String...
+Right+Shift            Shortcuts|Select Char Right
+Right+Shift+Alt        &Edit|&Format|Flush &Right
+Right+Shift+Ctrl       Shortcuts|Select Word Right
+Right+Shift+Ctrl+Alt   &Edit|&Move / Fill|Insert &Comment
+Space+Ctrl             &Tools|&Next Bullet
+Space+Ctrl+Alt         &Tools|&Insert Bullet
+Space+Shift+Ctrl       &Tools|&Previous Bullet
+Tab                    Shortcuts|Indent
+Tab+Ctrl               &Window|MDI &Shortcuts|Next &MDI Window
+Tab+Shift              Shortcuts|Unindent
+Tab+Shift+Ctrl         &Window|MDI &Shortcuts|Previous MDI &Window
+Up                     Shortcuts|Line Up
+Up+Alt                 &Edit|&Change Case|&Initial Capitals
+Up+Ctrl                Shortcuts|Par Up
+Up+Ctrl+Alt            &Edit|&Change Case|&Upper Case
+Up+Shift               Shortcuts|Select Line Up
+Up+Shift+Alt           &Edit|&Format|&Center
+Up+Shift+Ctrl          Shortcuts|Select Par Up
+F1                     &Help|&WinEdt Manual
+F1+Ctrl                &Help|&Keyword Search
+F1+Shift+Ctrl          &Help|LaTeX &Doc...
+F1+Shift+Ctrl          &Help|TeX &Doc...
+F2                     &Window|MDI &Shortcuts|Document &List...
+F2+Shift               &Window|MDI &Shortcuts|&Toggle Windows
+F3                     &Search|Search &Again
+F3+Alt                 &Search|&Next
+F3+Ctrl                &Search|Ne&xt Difference
+F3+Shift               &Search|&Previous
+F3+Shift+Ctrl          &Search|Pre&vious Difference
+F4+Alt                 &File|E&xit
+F4+Ctrl                &File|&Close
+F5                     &Project|Build &Tree
+F5+Ctrl                &Project|Set &Main File
+F5+Shift+Ctrl          &Project|&Remove Main File
+F6                     &Tools|Next &Error
+F6+Alt                 &Tools|&Spell Check...
+F7                     &View|&Folding Margin
+F7+Ctrl                Shortcuts|Fold All
+F7+Shift               Shortcuts|Fold Surrounding Nodes
+F7+Shift+Ctrl          Shortcuts|Unfold All
+F8                     &Accessories|&Preview
+F8                     &Accessories|&Preview
+F8                     &Accessories|HTML Pre&view
+F8                     &Accessories|&Run NSIS Installer
+F8+Shift               Te&X|&PDF|PDF &Search
+F9                     &Accessories|&Compile
+F9                     &Accessories|Compile &NSIS Script
+F9                     &Accessories|&Compile
+F9                     &Accessories|HTML &Help Compiler
+F9+Ctrl                &Macros|&Execute Macro Script...
+F9+Shift               &Accessories|Compile &Selected
+F9+Shift               &Accessories|Compile &Selected
+F9+Shift+Ctrl          &Macros|Execute &Current Macro
+F10                    &Tools|Restore Selection
+F10+Ctrl               &Tools|Global &Return
+F10+Shift              &Tools|Mark Selection
+F10+Shift+Ctrl         &Tools|Global &Mark
+F11                    &Search|&Bookmarks|&Caret <-> Select
+F11+Alt                &Search|&Bookmarks|&Mark
+F11+Ctrl               &Search|&Bookmarks|&Go To Mark
+F11+Ctrl+Alt           &Search|&Bookmarks|&Reset Selection
+F11+Shift+Ctrl         &Search|&Bookmarks|Se&lect From Mark
+F11+Shift+Ctrl+Alt     &Search|&Bookmarks|&Set Selection
+F12                    &Search|&Delimiters|&Match Delimiter Scope
+F12+Alt                &Search|&Delimiters|&Auto Check
+F12+Ctrl               &Search|&Delimiters|&Delimiter Check
+F12+Ctrl+Alt           &Search|&Delimiters|&Quick Check
+F12+Shift              &Search|&Delimiters|&Slow Check
+F12+Shift+Ctrl         &Search|&Delimiters|&Match Delimiter
+'+Ctrl                 Popups|Acute
+'+Shift+Ctrl           Popups|Umlaut
+,+Ctrl                 &Window|MDI &Shortcuts|&Next Window
+,+Shift+Ctrl           &Window|MDI &Shortcuts|&Previous Window
+.+Alt                  &Macros|Play Macro &Once
+.+Ctrl                 &Macros|Repeat &Last Command
+.+Shift+Alt            &Macros|Play &Macro
+0+Ctrl                 Bookmarks|GOTO 0
+0+Shift+Ctrl           Bookmarks|Mark 0
+1+Ctrl                 Bookmarks|GOTO 1
+1+Shift+Ctrl           Bookmarks|Mark 1
+2+Ctrl                 Bookmarks|GOTO 2
+2+Shift+Ctrl           Bookmarks|Mark 2
+3+Ctrl                 Bookmarks|GOTO 3
+3+Shift+Ctrl           Bookmarks|Mark 3
+4+Ctrl                 Bookmarks|GOTO 4
+4+Shift+Ctrl           Bookmarks|Mark 4
+5+Ctrl                 Bookmarks|GOTO 5
+5+Shift+Ctrl           Bookmarks|Mark 5
+6+Ctrl                 Bookmarks|GOTO 6
+6+Shift+Ctrl           Bookmarks|Mark 6
+7+Ctrl                 Bookmarks|GOTO 7
+7+Shift+Ctrl           Bookmarks|Mark 7
+8+Ctrl                 Bookmarks|GOTO 8
+8+Shift+Ctrl           Bookmarks|Mark 8
+9+Ctrl                 Bookmarks|GOTO 9
+9+Shift+Ctrl           Bookmarks|Mark 9
+;+Shift+Ctrl           Popups|Circumflex
+=+Alt                  Popups|Bookmarks
+=+Ctrl                 &View|Line &Numbers
+=+Shift+Ctrl           &View|Toggle &View
+A+Ctrl                 &Edit|&Select All
+A+Shift+Ctrl           Te&X|&DVI|&AMSTeX
+B+Alt                  Popups|BibTeX
+B+Shift+Ctrl           Te&X|&BibTeX
+C+Alt                  &Edit|&Append
+C+Ctrl                 &Edit|Cop&y
+C+Shift+Ctrl           &Accessories|&WinEdt Console...
+D+Shift+Ctrl           Te&X|&DVI|&DVIPS
+E+Ctrl                 &Search|&Errors...
+E+Shift+Ctrl           &Search|&Hide Errors
+F+Ctrl                 &Search|&Find...
+F+Shift+Ctrl           &Search|Find in File&s...
+G+Alt                  Popups|Greek
+G+Ctrl                 &Search|&Go To Line...
+G+Shift+Ctrl           Te&X|Make &Glossary
+H+Ctrl                 &Document|&Get Folder...
+H+Ctrl+Alt             &Document|&Home Folder
+H+Shift+Ctrl           &Document|&Set Folder...
+I+Ctrl                 &Search|&Incremental Search...
+I+Shift+Ctrl           Te&X|Make &Index
+K+Ctrl                 Shortcuts|Delete Line
+K+Shift+Ctrl           Shortcuts|Clear Line
+L+Ctrl                 &Document|&LOG File
+L+Shift+Ctrl           Te&X|&DVI|&LaTeX
+M+Shift+Ctrl           Te&X|&MetaPost
+N+Ctrl                 &File|&New
+N+Shift+Ctrl           &Document|&New Document...
+O+Ctrl                 &File|&Open...
+O+Shift+Ctrl           &Document|STD &Output File
+P+Ctrl                 &File|&Print...
+P+Shift+Ctrl           Te&X|PDFTe&Xify
+R+Ctrl                 &Search|&Replace...
+R+Shift+Ctrl           Te&X|&PDF|PDF Pre&view
+S+Ctrl                 &File|&Save
+S+Shift+Ctrl           Te&X|&DVI|DVI &Search
+T+Ctrl                 Shortcuts|Transpose Chars
+T+Shift+Ctrl           Te&X|&DVI|&TeX
+V+Ctrl                 &Edit|&Paste
+V+Shift+Ctrl           Te&X|&DVI|DVI Pre&view
+W+Ctrl                 Shortcuts|Toggle Wrap/NoWrap
+W+Shift+Ctrl           Shortcuts|Format Paragraph
+X+Ctrl                 &Edit|Cu&t
+X+Shift+Ctrl           Te&X|&TeXify
+Z+Ctrl                 &Edit|&Undo
+Z+Shift+Ctrl           &Edit|&Redo
+`+Ctrl                 Popups|Grave
+`+Shift+Ctrl           Popups|Tilde

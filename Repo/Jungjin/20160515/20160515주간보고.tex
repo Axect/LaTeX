@@ -1,0 +1,254 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Daily Laboratory Book
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Frank Kuster (http://www.ctan.org/tex-archive/macros/latex/contrib/labbook/)
+%
+% Important note:
+% This template requires the labbook.cls file to be in the same directory as the
+% .tex file. The labbook.cls file provides the necessary structure to create the
+% lab book.
+%
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing lab book content.
+%
+% HOW TO USE THIS TEMPLATE 
+% Each day in the lab consists of three main things:
+%
+% 1. LABDAY: The first thing to put is the \labday{} command with a date in 
+% curly brackets, this will make a new page and put the date in big letters 
+% at the top.
+%
+% 2. EXPERIMENT: Next you need to specify what experiment(s) you are 
+% working on with an \experiment{} command with the experiment shorthand 
+% in the curly brackets. The experiment shorthand is defined in the 
+% 'DEFINITION OF EXPERIMENTS' section below, this means you can 
+% say \experiment{pcr} and the actual text written to the PDF will be what 
+% you set the 'pcr' experiment to be. If the experiment is a one off, you can 
+% just write it in the bracket without creating a shorthand. Note: if you don't 
+% want to have an experiment, just leave this out and it won't be printed.
+%
+% 3. CONTENT: Following the experiment is the content, i.e. what progress 
+% you made on the experiment that day.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[idxtotoc,hyperref,openany]{labbook} % 'openany' here removes the gap page between days, erase it to restore this gap; 'oneside' can also be added to remove the shift that odd pages have to the right for easier reading
+
+\usepackage[ 
+  backref=page,
+  pdfpagelabels=true,
+  plainpages=false,
+  colorlinks=true,
+  bookmarks=true,
+  pdfview=FitB]{hyperref} % Required for the hyperlinks within the PDF
+  
+\usepackage{booktabs} % Required for the top and bottom rules in the table
+\usepackage{float} % Required for specifying the exact location of a figure or table
+\usepackage{graphicx} % Required for including images
+\usepackage{kotex}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF EXPERIMENTS
+%----------------------------------------------------------------------------------------
+
+\newexperiment{cc}{진도 현황}
+\newexperiment{at}{수업태도 및 출결상태}
+\newexperiment{tb}{교재목록}
+\newexperiment{cm}{비고사항}
+%\newexperiment{shorthand}{Description of the experiment}
+
+%---------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\frontmatter % Use Roman numerals for page numbers
+\title{
+\begin{center}
+\HRule \\[0.4cm]
+{\Huge \bfseries 정진학원 주간보고  \\[0.5cm] \Large 고등부 수학}\\[0.4cm] % Degree
+\HRule \\[1.5cm]
+\end{center}
+}
+\author{\LARGE 김태근 \\  \\[2cm]} % Your name and email address
+\date{2016.05.16} % Beginning date
+\maketitle
+
+\tableofcontents
+
+\mainmatter % Use Arabic numerals for page numbers
+
+%----------------------------------------------------------------------------------------
+%	LAB BOOK CONTENTS
+%----------------------------------------------------------------------------------------
+
+% Blank template to use for new days:
+
+%\labday{Day, Date Month Year}
+
+%\experiment{}
+
+%Text
+
+%-----------------------------------------
+
+%\experiment{}
+
+%Text
+
+%----------------------------------------------------------------------------------------
+
+\labday{2016.05.11 - 2016.05.14}
+
+\experiment{tb}
+
+\begin{table}[h]
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{c||c|c}
+\toprule
+\midrule
+학년 & \multicolumn{2}{c}{교재 목록} \\
+\hhline{=||==}
+고1 & 내신 & 메시지 수학1 \\
+\hline
+고2 & 내신 & 메시지 미적분1\\
+\hline
+\multirow{3}{*}{고3} & 공통 & 메시지 확률과 통계 \\ \hhline{~--}
+					& 문과 & 메시지 미적분1, 리얼 DNA 유형별 확률과통계\\ \hhline{~--}
+					& 이과 & 메시지 미적분2, 개념유형 미적분2\\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{\label{tab:i} 고등부 수학 교재목록 }
+\end{table}
+
+\experiment{cc}
+
+
+\begin{table}[h]
+\centering
+\begin{adjustbox}{width=.9\textwidth}
+\begin{tabular}{c||c|c}
+\toprule
+\midrule
+학년 & \multicolumn{2}{c}{주간 진도 현황} \\
+\hhline{=||==}
+고1 & 내신 & \rom{2}. 방정식과 부등식 - 5. 여러가지 부등식   \\
+\hline
+고2 & 내신 & \rom{3}. 다항함수의 미분법 - 1. 미분계수와 도함수 \\
+\hline
+\multirow{3}{*}{고3} & 공통 & 모의고사 대비 (함수의 극한과 연속) \\ \hhline{~--}
+					& 문과 &  \\ \hhline{~--}
+					& 이과 & \rom{2}. 삼각함수 - 3. 삼각함수의 미분법  \\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{\label{tab:ii} 고등부 수학 진도 현황 }
+\end{table}
+
+%-----------------------------------------
+
+\experiment{at} % Multiple experiments can be included in a single day, this allows you to segment what was done each day into separate categories
+
+
+
+\begin{table}[H]
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{c|c||c|c|c|c|c}
+\toprule
+\midrule
+학년 & 이름 & 결석 & 숙제불이행 & 교재미지참 & 수업태도 & 종합태도점수 \\
+\hhline{=|=||=|=|=|=|=}
+\multirow{5}{*}{고1}& 김동현 & 0 & 0 & 0 & 3 & 76  \\ \hhline{~------}
+					& 김정욱 & - & - & - & - & -   \\ \hhline{~------}
+					& 김주희 & 0.5 & 0 & 0 & 5 & 97.5   \\ \hhline{~------}
+					& 손예진 & 0 & 0 & 0 & 5 & 100  \\ \hhline{~------}
+					& 윤선영 & 0 & 0 & 0 & 4 & 88   \\
+\hline
+\multirow{2}{*}{고2}& 김미연 & 0 & 0 & 0 & 5 & 100   \\ \hhline{~------}
+					& 안상호 & 1 & 0 & 0 & 4 & 83	\\ 
+\hline
+\multirow{2}{*}{고3}& 김현우 & 0 & 0 & 0 & 5 & 100  \\ \hhline{~------}
+					& 장한수 & 0 & 0 & 0 & 5 & 100	\\
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{\label{tab:iii} 고등부 태도 현황 }
+\end{table}
+
+%-----------------------------------------
+
+\experiment{cm}
+\begin{itemize}
+	\item 이번 주 수업태도는 모든 학년이 양호하였음.
+	\item 선영이의 수업태도가 상당히 좋아졌음. 그러나 동현이의 수업태도는 아직 별로 좋지 않음.
+	\item 고1 모의고사(2015년 6월) 시행 결과 주희는 63점으로 4등급, 선영이는 49 점으로 5등급, 동현이는 28점으로 7등급을 기록함.
+	\item 고2의 경우 미연이의 수업태도는 우수하였고 상호는 결석으로 진도를 나가지 못함.
+	\item 고3의 경우 미적분1 테스트를 진행하였는데 현우는 꽤 기억하고 있었으나 한수는 상당부분을 잊어버려서 보완이 필요함.
+\end{itemize}
+
+\experiment{방학일정}
+두 가지 방학일정이 나왔습니다. 하나는 방학시작하고 1주일 동안 학회가 잡혀있는 것이고 하나는 계절학기입니다.
+\begin{itemize}
+ \item 6월 26일 (일) $-$ 7월 2일 (토) : APCTP (아시아태평양이론물리센터) 에서 주최하는 수치상대론학회가 있습니다. 대전 KAIST에서 1주일 동안 진행되기에 불가피하게 학원을 빠질 수 밖에 없습니다.
+ \item 7월 4일 (월) $-$ 7월 15일 (금) : 계절학기 관계로 매일 1시 $-$ 5시 까지 수업이 있습니다. 그러나 아직 학생들은 방학이 아니니 상관없을 듯 합니다.
+\end{itemize}
+
+
+%-----------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	FORMULAE AND MEDIA RECIPES
+%----------------------------------------------------------------------------------------
+
+------------------------------------------
+%	MEDIA RECIPES
+%----------------------------------------------------------------------------------------
+
+
+%-----------------------------------------
+
+%\textbf{Media 2}\\ \\
+
+%Description
+
+%----------------------------------------------------------------------------------------
+%	FORMULAE
+%----------------------------------------------------------------------------------------
+
+
+%-----------------------------------------
+
+%\textbf{Formula X - Description}\\ \\
+
+%Formula
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

@@ -1,0 +1,182 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    INSTITUTE OF PHYSICS PUBLISHING                                   %
+%                                                                      %
+%   `Preparing an article for publication in an Institute of Physics   %
+%    Publishing journal using LaTeX'                                   %
+%                                                                      %
+%    LaTeX source code `ioplau2e.tex' used to generate `author         %
+%    guidelines', the documentation explaining and demonstrating use   %
+%    of the Institute of Physics Publishing LaTeX preprint files       %
+%    `iopart.cls, iopart12.clo and iopart10.clo'.                      %
+%                                                                      %
+%    `ioplau2e.tex' itself uses LaTeX with `iopart.cls'                %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% First we have a character check
+%
+% ! exclamation mark    " double quote  
+% # hash                ` opening quote (grave)
+% & ampersand           ' closing quote (acute)
+% $ dollar              % percent       
+% ( open parenthesis    ) close paren.  
+% - hyphen              = equals sign
+% | vertical bar        ~ tilde         
+% @ at sign             _ underscore
+% { open curly brace    } close curly   
+% [ open square         ] close square bracket
+% + plus sign           ; semi-colon    
+% * asterisk            : colon
+% < open angle bracket  > close angle   
+% , comma               . full stop
+% ? question mark       / forward slash 
+% \ backslash           ^ circumflex
+%
+% ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+% abcdefghijklmnopqrstuvwxyz 
+% 1234567890
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\documentclass[12pt,a4paper,final]{iopart}
+\newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
+%Uncomment next line if AMS fonts required
+\usepackage{kotex}
+\usepackage{iopams}  
+\usepackage{graphicx}
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+\begin{document}
+
+\title{하이욤!}
+
+\author{Author One$^{1,2}$}
+\address{$^1$Address One, Neverland}
+\address{$^2$Address Two, Neverland}
+\ead{author.one@mail.com}
+
+\author{Author Two}
+\address{Address Three, Neverland}
+\ead{author.two@mail.com}
+
+\author[cor1]{Author Three}
+\address{Address Four, Neverland}
+\eads{\mailto{author.three@mail.com}, \mailto{author.three@gmail.com}}
+
+
+\begin{abstract}
+This document describes the  preparation of an article using \LaTeXe\ and 
+\verb"iopart.cls" (the IOP \LaTeXe\ preprint class file).
+This class file is designed to help 
+authors produce preprints in a form suitable for submission to any of the
+journals published by IOP Publishing.
+Authors submitting to any IOP journal, i.e.\ 
+both single- and double-column ones, should follow the guidelines set out here. 
+On acceptance, their TeX code will be converted to 
+the appropriate format for the journal concerned.
+
+\end{abstract}
+
+%Uncomment for PACS numbers title message
+\pacs{00.00, 20.00, 42.10}
+% Keywords required only for MST, PB, PMB, PM, JOA, JOB? 
+\vspace{2pc}
+\noindent{\it Keywords}: Article preparation, IOP journals
+% Uncomment for Submitted to journal title message
+\submitto{\JPA}
+% Comment out if separate title page not required
+%\maketitle
+
+\section{Introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+In Ref.~\cite{ref1}...
+In Refs.~\cite{ref1,ref2}...
+On webpage~\cite{web}...
+
+\section{Results and discussions}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\subsection{Sample subsection}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\subsubsection{Sample subsubsection}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\begin{figure}[htb!]
+ \centering
+ \includegraphics{lion.png}
+ \caption{\label{figureone}This is sample picture -- ShareLaTeX lion. }
+\end{figure}
+
+
+\subsection{Simplified coding and extra features for tables}
+The basic coding format can be simplified using extra commands provided in
+the \verb"iopart" class file. The commands up to and including 
+the start of the tabular environment
+can be replaced by
+\small\begin{verbatim}
+\Table{\label{label}Table caption}
+\end{verbatim}\normalsize
+this also activates the definitions within \verb"\lineup".
+The final three lines can also be reduced to \verb"\endTable" or
+\verb"\endtab". Similarly for a table which does not fit in when indented
+\verb"\fulltable{\label{label}caption}" \dots\ \verb"\endfulltable" or \verb"\endtab"
+can be used. \LaTeX\ optional positional parameters can, if desired, be added after 
+\verb"\Table{\label{label}caption}" and \verb"\fulltable{\label{label}caption}".
+
+
+\verb"\centre{#1}{#2}" can be used to centre a heading 
+\verb"#2" over \verb"#1" 
+columns and \verb"\crule{#1}" puts a rule across 
+\verb"#1" columns. A negative 
+space \verb"\ns" is usually useful to reduce the space between a centred 
+heading and a centred rule. \verb"\ns" should occur immediately after the 
+\verb"\\" of the row containing the centred heading (see code for
+\tref{tabl1}). A small space can be 
+inserted between rows of the table 
+with \verb"\ms" and a half line space with \verb"\bs" 
+(both must follow a \verb"\\" but should not have a 
+\verb"\\" following them).
+   
+\Table{\label{tabl1}A table with headings spanning two columns and containing notes. 
+To improve the 
+visual effect a negative skip ($\backslash${\tt ns})
+has been put in between the lines of the 
+headings. Commands set-up by $\backslash${\tt lineup} are used to aid 
+alignment in columns. $\backslash${\tt lineup} is defined within
+the $\backslash${\tt Table} definition.}
+\br
+&&&\centre{2}{Separation energies}\\
+\ns
+&Thickness&&\crule{2}\\
+Nucleus&(mg\,cm$^{-2}$)&Composition&$\gamma$, n (MeV)&$\gamma$, 2n (MeV)\\
+\mr
+$^{181}$Ta&$19.3\0\pm 0.1^{\rm a}$&Natural&7.6&14.2\\
+$^{208}$Pb&$\03.8\0\pm 0.8^{\rm b}$&99\%\ enriched&7.4&14.1\\
+$^{209}$Bi&$\02.86\pm 0.01^{\rm b}$&Natural&7.5&14.4\\
+\br
+\end{tabular}
+\item[] $^{\rm a}$ Self-supporting.
+\item[] $^{\rm b}$ Deposited over Al backing.
+\end{indented}
+\end{table}
+
+
+
+\section*{References}
+\begin{thebibliography}{10}
+\bibitem{ref1} J.~Doe, Article name, \textit{Phys. Rev. Lett.}
+
+\bibitem{ref2} J.~Doe, J. Smith, Other article name, \textit{Phys. Rev. Lett.}
+
+\bibitem{web} \href{http://www.google.pl}{www.google.pl}
+\end{thebibliography}
+
+\end{document}
+

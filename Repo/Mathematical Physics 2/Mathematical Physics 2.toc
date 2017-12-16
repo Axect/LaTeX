@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Some examples and best-practices}{1}{section.1}
+\contentsline {section}{\numberline {2}Sections}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}And subsequent}{2}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Sub-sections}{2}{subsubsection.2.1.1}
+\contentsline {paragraph}{Up to paragraphs.}{2}{section*.2}
+\contentsline {section}{\numberline {A}Some title}{2}{appendix.A}
+\contentsline {paragraph}{Note added.}{2}{section*.4}

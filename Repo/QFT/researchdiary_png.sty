@@ -1,0 +1,239 @@
+\ProvidesPackage{researchdiary_png}
+%%%%%%%%% MIKHAIL KLASSEN - RESEARCH DIARY HEADER %%%%%%%%%%%%
+%% @author:  Mikhail Klassen                                %%
+%% @contact: mikhail.klassen@gmail.com                      %%
+%% @revised:    12 / January / 2011                         %%
+%% @license: Creative Commons Share Alike 3.0               %%
+%%           http://creativecommons.org/licenses/by-sa/3.0/ %%
+%%                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{extract}
+\usepackage{fancyhdr}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{twoopt}
+\usepackage{tensor}
+\usepackage{ntheorem}
+\usepackage{multicol}                                              % Make Multicolumn
+\usepackage{braket}
+\usepackage[shortlabels]{enumitem}
+\usepackage[hmargin=2cm,vmargin=2.5cm]{geometry}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{epsfig}
+\usepackage{tabu}                                                  % Great tool for make table
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}    % Also.
+\usepackage{xcolor}                                                % Also.
+\usepackage{subcaption}
+\usepackage{dcolumn}
+\usepackage{framed}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage[usenames,dvipsnames]{pstricks}
+\definecolor{darkblue}{RGB}{47,68,117}
+\definecolor{lightgray}{gray}{0.95}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Notes on use of hyperlinks:
+%% \url{http://www.wikibooks.org}
+%% \href{http://www.wikibooks.org}{wikibooks home}
+%% \href{mailto:email@site.com}{email@site.com}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\setlength\parindent{0in}
+\setlength\parskip{0.1in}
+\setlength\headheight{14pt}
+
+
+%%%%%%%%%%% HEADER / FOOTER %%%%%%%%%%%
+\rhead{\textsc{\thepage}}
+\chead{\textsc{QFT STUDY}}
+\lhead{\textsc{\userName}}
+\cfoot{\empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagenumbering{gobble}
+%%%%%%%%%%% NEW COMMANDS %%%%%%%%%%%%%%
+\newcommand{\univlogo}{%
+  \noindent % University Logo
+  \begin{wrapfigure}{r}{0.1\textwidth}
+    \vspace{-20pt}
+    \begin{center}
+      \includegraphics[width=0.1\textwidth]{logo.png}
+    \end{center}
+    \vspace{-100pt}
+  \end{wrapfigure}
+}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@} % romman number
+\makeatother
+%--------------------------------------------------------------------
+%-----------Sectioning-----------------------------------------------
+%--------------------------------------------------------------------
+\makeatletter
+\renewcommand{\subsection}{\@startsection
+{subsection}%
+{2}%
+{0mm}%
+{0.1\baselineskip}%
+{0.1\baselineskip}%
+{\bfseries\large}}
+\makeatother
+
+\makeatletter
+\renewcommand{\subsubsection}{\@startsection
+{subsubsection}%
+{3}%
+{0mm}%
+{0.1\baselineskip}%
+{0.1\baselineskip}%
+{\bfseries\normalsize\slshape}}
+\makeatother
+
+\renewcommand{\thesubsection}{\arabic{subsection})}
+\renewcommand{\thesubsubsection}{$-$}
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{1pt}
+  \setlength\belowdisplayskip{1pt}
+  \setlength\abovedisplayshortskip{1pt}
+  \setlength\belowdisplayshortskip{1pt}
+}
+\makeatother
+%--------------------------------------------------------------------
+%-----------Theorem--------------------------------------------------
+%--------------------------------------------------------------------
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{break}                                               % Above = No line break, Below = Line break
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{note}{Note}[section]
+%--------------------------------------------------------------------
+%-----------Custom Command-------------------------------------------
+%--------------------------------------------------------------------
+\newcommand{\UP}{^}
+\newcommandtwoopt{\OD}[2][][t]{\dfrac{d #1}{d #2}}                 % Ordinary Differentiate (default = d/dt)
+\newcommand{\PD}[2]{\dfrac{\partial #1}{\partial #2}}              % Partial Differentiate
+\newcommand{\PPD}[2]{\dfrac{\partial^2 #1}{\partial #2 ^2}}        % Double Partial
+\newcommand{\tOD}[2]{\tfrac{d #1}{d #2}}                           % Small Ordinary Differntiate
+\newcommand{\tPD}[2]{\tfrac{\partial #1}{\partial #2}}             % Small Partial Differntiate
+\newcommand{\IN}[2]{\left( #1 \Com #2 \right)}                     % Bracket with comma
+\newcommand{\Norm}[1]{\left\| #1 \right\|^2}                       % Norm 
+\newcommand{\At}[2]{\left.#1\right|_{#2}}                          % Differentiate at ..
+\newcommand{\HOT}[1]{\mathcal{O}\left( #1 \right)}                 % Big O function
+\renewcommand{\O}{\mathcal{O}}                                     % Only Big O
+\newcommand{\R}{\mathcal{R}}                                       % Ray
+\newcommand{\eps}{\epsilon}                                        % epsilon
+\newcommand{\X}{\vec{X}}                                           % Vector X
+\newcommand{\q}{\dot{q}}                                           % dot q
+\newcommand{\hq}{\hat{q}}                                          % hat q
+\newcommand{\hp}{\hat{p}}                                          % hat p
+\newcommand{\hX}{\hat{X}}                                          % hat X
+\newcommand{\hP}{\hat{P}}                                          % hat P
+\newcommand{\hH}{\hat{H}}                                          % hat H
+\newcommand{\hA}{\hat{A}}                                          % hat A
+\newcommand{\hU}{\hat{U}}                                          % hat U
+\newcommandtwoopt{\LT}[2][\mu][\nu]{\tensor{\Lambda}{^#1 _#2}}     % Lorentz Transform
+\newcommandtwoopt{\LTw}[2][\mu][\nu]{\tensor{\omega}{^#1 _#2}}     % Lorentz Transform generator
+\newcommand{\Ex}[2]{\tensor[^\exists]{#1}{#2}}                     % Exist symbol
+\newcommand{\TE}[1]{e^{#1 i\hH t}}                                 % Time Evolution Operator
+\renewcommand{\L}{\mathcal{L}}                                     % symbol of lagrangian
+\renewcommand{\H}{\mathcal{H}}                                     % symbol of Hilbert space
+\newcommand{\Lag}[1][q_k(t), \dot{q}_k(t),t]{\mathcal{L}( #1 )}    % Default Lagrangian
+\newcommand{\Act}[1][\Lag{}]{\int_{t_i}^{t_f}dt \hs #1}            % Action integral (default = Lagrangian)
+\newcommand{\BKS}[1]{\left( #1 \right)}                            % Big bracket ()
+\newcommand{\hket}[1][\psi]{\ket{#1}}                              % only ket
+\newcommand{\sket}[1][\psi]{\tensor{\ket{#1}}{_s}}                 % Only Ket which is schrodinger
+\newcommandtwoopt{\PKS}[2][][H]{\left\{ #1 , #2 \right\}}          % Poisson Bracket
+\newcommandtwoopt{\Commutator}[2][A][\hH]{\left[ #1 , #2 \right] } % Commutator
+\newcommand{\ACommutator}[2]{\{ #1 , #2 \}}                        % Anti Commutator
+\newcommand{\TA}[3]{\bra{#1}e^{-i #2}\ket{#3}}                     % Transitional Amplitude
+\newcommand{\Ip}{\int{d^3p}\hs}                                    % Integrate p^3
+\newcommand{\vp}{\vec{p}\hs}                                       % Vector p and spacebar
+\newcommand{\vq}{\vec{q}\hs}                                       % Vector q and spacebar
+\newcommand{\abs}[1]{\left|#1\right|}                              % Absolute Value
+\newcommand{\avp}{\abs{\vp}}                                       % Absolute vector p
+\newcommand{\Dal}{\dfrac{\partial^2}{\partial t^2}-\nabla^2}       % D'Alembertian vector ver.
+\newcommand{\KG}{(\Box + m^2)}                                     % Klein Gordon operator
+\renewcommand{\u}[1][p]{u_{#1}}                                    % u_p
+\newcommand{\Kin}{i(\u^*\partial^0\u-\partial^0\u^*\u)}            % Klein Gordon Inner product
+\newcommandtwoopt{\KIn}[2][p][p']{i\int{d^3x}\hs{u}_{#1}^* \overset{\leftrightarrow}{\partial_0}{u}_{#2}} % Full ver. Klein Gordon Inner product
+\newcommand{\DT}{\delta^{(3)}}                                     % Dirac delta in 3D
+\newcommand{\Ep}{E_{\vp}}                                          % E_p
+\newcommand{\J}[1]{\mathcal{J}^{#1}}                                         % Angular Momentum
+\newcommand{\Px}{
+\begin{pmatrix}
+ 0 & 1 \\
+ 1 & 0
+\end{pmatrix}}                                                     % Pauli Matrix 1
+\newcommand{\Py}{
+\begin{pmatrix}
+ 0 & -i \\
+ i & 0
+\end{pmatrix}}                                                     % Pauli Matrix 2
+\newcommand{\Pz}{
+\begin{pmatrix}
+ 1 & 0 \\
+ 0 & -1
+\end{pmatrix}}                                                     % Pauli Matrix 3
+\newcommand{\Id}{
+\begin{pmatrix}
+ 1 & 0 \\
+ 0 & 1
+\end{pmatrix}}                                                     % Identity Matrix
+%--------------------------------------------------------------------
+%-----------Font Size------------------------------------------------
+%--------------------------------------------------------------------
+\newcommand\BM{\fontsize{11}{7.2}\selectfont}
+\newcommand\NM{\fontsize{9}{7.2}\selectfont} 
+\newcommand\SM{\fontsize{8}{7.2}\selectfont}
+\newcommand\SSM{\fontsize{7}{7.2}\selectfont}
+\newcommand\SSSM{\fontsize{6}{7.2}\selectfont}
+%--------------------------------------------------------------------
+%-----------Bullet size----------------------------------------------
+%--------------------------------------------------------------------
+\newcommand*{\ld}{\raisebox{-0.45ex}{\scalebox{2}{$\cdot$}}}              % Middle size cdot
+%--------------------------------------------------------------------
+%-----------Spacing--------------------------------------------------
+%--------------------------------------------------------------------
+\newcommand{\HL}{\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}} % Horizontal Line
+\newcommand{\HS}{\hspace{0.3cm}}                                          % Big horizontal spacing
+\newcommand{\VS}{\vspace{0.3cm}}                                          % Vertical spacing
+\newcommand{\Com}{,\hspace{0.1cm}}                                        % comma & horizontal spacing
+\newcommand{\hs}{\hspace{0.1cm}}                                          % horizontal spacing
+\newcommand{\vs}{\vspace{0.1cm}}                                          % small vertical spacing
+%--------------------------------------------------------------------
+\newcommand\textline[4][t]{%
+  \par\smallskip\noindent\parbox[#1]{.5\textwidth}{\raggedright\textnormal{#2}}%
+  \parbox[#1]{.1\textwidth}{\centering#3}%
+  \parbox[#1]{.3\textwidth}{\raggedleft\textnormal{#4}}\par\smallskip%
+}% Left center right align
+%--------------------------------------------------------------------
+%%%%%%%%% NEW ENVIRONMENTS %%%%%%%%%%%%
+\newenvironment{bullets}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+\newenvironment{numlist}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+\newenvironment{code}{
+\begin{quote}\begin{framed}
+}{\end{framed}\end{quote}}
+                           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

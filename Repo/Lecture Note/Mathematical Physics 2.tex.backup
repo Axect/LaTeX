@@ -1,0 +1,905 @@
+\documentclass[final]{IEEEphot}
+
+\usepackage{setspace}
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{amssymb}
+\usepackage{diagrams}
+%\diagramstyle[labelstyle=\scriptstyle]
+\usepackage{graphicx}
+\usepackage{tensor} % Convenient to use tensor notation
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{braket} % Convenient to use dirac bracket notation
+\usepackage{twoopt} % Make two default option command
+\usepackage{csquotes} % Proof's paragraph
+\usepackage[bb=boondox]{mathalfa}
+\usepackage[shortlabels]{enumitem}
+
+\setlength\parindent{0pt} % No-indent
+
+\renewcommand{\baselinestretch}{1.1} 
+\jvol{xx}
+\jnum{xx}
+\jmonth{September}
+\pubyear{2016}
+%--------------------------------------------------------------------
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@} % romman number
+\makeatother
+%--------------------------------------------------------------------
+%-----------Theorem--------------------------------------------------
+%--------------------------------------------------------------------
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+%--------------------------------------------------------------------
+%-----------Custom Command-------------------------------------------
+%--------------------------------------------------------------------
+\newcommandtwoopt{\OD}[2][][t]{\dfrac{d #1}{d #2}} % Ordinary Differentiate (default = d/dt)
+\newcommand{\PD}[2]{\dfrac{\partial #1}{\partial #2}} % Partial Differentiate
+\newcommand{\PPD}[2]{\dfrac{\partial^2 #1}{\partial #2 ^2}}
+\newcommand{\tOD}[2]{\tfrac{d #1}{d #2}}
+\newcommand{\tPD}[2]{\tfrac{\partial #1}{\partial #2}}
+\newcommand{\IN}[2]{\left( #1 \Com #2 \right)} % Bracket with comma
+\newcommand{\Norm}[1]{\left\| #1 \right\|^2} 
+\newcommand{\At}[2]{\left.#1\right|_{#2}} % Differentiate at ..
+\newcommand{\HOT}[1]{\mathcal{O}\left( #1 \right)} % Big O function
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\eps}{\epsilon} 
+\newcommand{\X}{\vec{X}}
+\newcommand{\q}{\dot{q}}
+\newcommand{\hq}{\hat{q}}
+\newcommand{\hp}{\hat{p}}
+\newcommand{\hX}{\hat{X}}
+\newcommand{\hP}{\hat{P}}
+\newcommand{\hH}{\hat{H}}
+\newcommand{\hA}{\hat{A}}
+\newcommand{\hU}{\hat{U}}
+\newcommand{\Ex}[2]{\tensor[^\exists]{#1}{#2}}
+\newcommand{\TE}[1]{e^{#1 i\hH t}}
+\renewcommand{\L}{\mathcal{L}} % symbol of lagrangian
+\renewcommand{\H}{\mathcal{H}} % symbol of Hilbert space
+\newcommand{\Lag}[1][q_k(t), \dot{q}_k(t),t]{\mathcal{L}( #1 )} % Default Lagrangian
+\newcommand{\Act}[1][\Lag{}]{\int_{t_i}^{t_f}dt \hs #1} % Action integral (default = Lagrangian)
+\newcommand{\BKS}[1]{\left( #1 \right)} % Big bracket
+\newcommand{\hket}[1][\psi]{\ket{#1}} % only ket
+\newcommand{\sket}[1][\psi]{\tensor{\ket{#1}}{_s}}
+\newcommandtwoopt{\PKS}[2][][H]{\left\{ #1 , #2 \right\}} % Poisson Bracket
+\newcommandtwoopt{\Commutator}[2][A][\hH]{\left[ #1 , #2 \right] } % Commutator
+%--------------------------------------------------------------------
+%-----------Font Size------------------------------------------------
+%--------------------------------------------------------------------
+\newcommand\BM{\fontsize{11}{7.2}\selectfont}
+\newcommand\NM{\fontsize{9}{7.2}\selectfont} 
+\newcommand\SM{\fontsize{8}{7.2}\selectfont}
+\newcommand\SSM{\fontsize{7}{7.2}\selectfont}
+\newcommand\SSSM{\fontsize{6}{7.2}\selectfont}
+%--------------------------------------------------------------------
+%-----------Bullet size----------------------------------------------
+%--------------------------------------------------------------------
+\newcommand*{\ld}{\raisebox{-0.45ex}{\scalebox{2}{$\cdot$}}}
+%--------------------------------------------------------------------
+%-----------Spacing--------------------------------------------------
+%--------------------------------------------------------------------
+\newcommand{\HS}{\hspace{0.3cm}} % Big horizontal spacing
+\newcommand{\VS}{\vspace{0.3cm}} % Vertical spacing
+\newcommand{\Com}{,\hspace{0.1cm}} % comma & horizontal spacing
+\newcommand{\hs}{\hspace{0.1cm}} % horizontal spacing
+\newcommand{\vs}{\vspace{0.1cm}} % small vertical spacing
+%--------------------------------------------------------------------
+\newcommand\textline[4][t]{%
+  \par\smallskip\noindent\parbox[#1]{.6\textwidth}{\raggedright\textnormal{#2}}%
+  \parbox[#1]{.1\textwidth}{\centering#3}%
+  \parbox[#1]{.35\textwidth}{\raggedleft\textnormal{#4}}\par\smallskip%
+}% Left center right align
+%--------------------------------------------------------------------
+\begin{document}
+
+\title{Mathematical Physics \rom{2}}
+
+\author{Seong Chan, Park \\
+\vspace{0.5cm}
+\SM \normalfont{\today} \\
+\vspace{0.3cm}
+\SM \textit{Documented by T.G. Kim \& K.S. Lee}}
+
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+\section{Classical Mechanics}
+
+\subsection{Newtonian Mechanics}
+
+\HS Newtonian mechanics is 'Dynamical Theory' which uses time as dynamical parameter. The main target of Newtonian machanics is the point particle which has mass, lives on 
+3-dimensional Euclidean space and is described by time dependent coordinates. The space is called \textbf{Configuration Space}.
+To see the property of Configuration space, let consider a vector $\vec{v}$ on Configuration space. Then the vector is descibed by orthonormal basis.
+
+\begin{equation*}
+ \vec{v} = \sum^{d=3}_{i=1} v_i \hat{e_i}\Com \HS where\hs\hs \IN{\hat{e_i}}{\hat{e_j}} = \delta_{ij}\hs (i,j = 1,2,3)
+\end{equation*}
+Also, it's easy to see that the component can be obtained by inner product:
+\begin{equation*}
+ v_i = \IN{\vec{v}}{\hat{e_i}}
+\end{equation*}
+Now, we can represent the time-dependent position vector as below:
+
+\begin{equation*}
+ \vec{X}(t) = \sum_{i} X_{i}(t) \hat{e_i}
+\end{equation*}
+Because we are usually interested in inertial frame, we choose time-independent basis. \linebreak 
+Next, let's see dynamics by infinitesimal time translation from $t=0$ to $t=\epsilon$. ($\epsilon \ll \textnormal{unit time}$)
+
+\begin{equation}
+ \vec{X}(\epsilon) = \vec{X}(0) + \epsilon \At{\OD{\vec{X}(t)}}{t=0}+ \HOT{\eps^2}
+\end{equation}
+Since we can ignore higher order terms for infinitesimal $\eps$, we only need $\vec{X}(0)\Com \OD{\vec{X}}(0)$. Since the latter one is velocity, we can find that only \textbf{initial position \& veclocity} 
+are needed to obtain position after infinitesimal time translation.
+
+Now, consider $ t \rightarrow \eps_1 + \eps_2$.
+
+\begin{equation}
+ \vec{X}(\eps_1 + \eps_2) = \vec{X}(\eps_1) + \eps_2 \At{\OD{\vec{X}(t)}}{t=\eps_1}+\HOT{{\eps_2} ^2}
+\end{equation}
+Since we have $\vec{X}(\eps_1)$ from given initial position \& velocity, we only need $\At{\OD{\vec{X}(t)}}{t=\eps_1}$.
+
+\begin{equation}
+\begin{split}
+ \At{\OD{\vec{X}(t)}}{t=\eps_1} & = \dot{\vec{X}}(\eps_1) = \dot{\vec{X}}(0) + \eps_1 \At{\OD{\dot{\vec{X}}(t)}}{t=0} + \HOT{{\eps_1}^2} \\
+                                   & = \dot{\vec{X}}(0) + \eps_1 \At{\ddot{\vec{X}}(t)}{t=0}
+\end{split}
+\end{equation}
+As we can obtain $\ddot{\vec{X}}(t)$ by Force law, we can determine position at any time by only two initial conditions. Thus, Newtonian mechanics is fully deterministic dynamical theory.
+\VS
+
+\paragraph{Physical State}
+
+: At time $t$, $\BKS{\X(t), \dot{X}(t) + Force Law}$ is given, then we can determine physical state.
+
+\VS
+\VS
+
+\subsection{Lagrangian Mechanics}
+
+
+\HS As seen from Newtonian mechanics, the physical state is composed of $\X(t),\dot{\X}(t)$. In Lagrangian formalism, the general coordinates and derivatives of those ($q_k(t), \dot{q}_k(t)$) \footnotemark[1] are ingredients of Lagrangian, which defines Action\footnotemark[2]:
+
+\begin{equation*}
+ S[q(t)] \equiv \int_{t_i}^{t_f} dt \hs \mathcal{L} (q_k (t), \dot{q}_k (t))
+\end{equation*}
+\footnotetext[1]{$k$ represent number of 'Degree of Freedom' (D.O.F)}
+\footnotetext[2]{Action is not function - Not depends on particular point, but depends on entire trajectory. It is defined as functional.}
+\paragraph{Least Action Principle}
+\VS
+\begin{quote}
+\textit{``The path taken by the system between times $t_1$ and $t_2$ is the one for which the action is stationary (no change) to first order.\footnotemark[3]'' \footnotetext[3]{R. Penrose (2007). The Road to Reality. Vintage books. p. 474. ISBN 0-679-77631-1.}}
+\end{quote}
+\VS
+
+Let $q_{cl}$ be the classical path, then the variation of action $\delta S =  S[q_{cl} +\delta q] - S[q_{cl}] = 0$ 
+From this, we can derive the Euler-Lagrange equation.
+
+\begin{equation}
+\label{eq:4}
+ \begin{split}
+  \delta S & = \delta \Act{}\\
+           & = \Act[\delta \Lag{}]\\
+           & = \Act[\BKS{\PD{\L}{q_k} \delta q_k(t) + \PD{\L}{\dot{q}_k} \delta \dot{q}_k + \PD{\L}{t}}]\\
+           & = \Act[\BKS{\OD \BKS{\PD{\L}{\dot{q}_k} \delta q_k} - \BKS{\OD\BKS{\PD{\L}{\dot{q}_k}} - \PD{\L}{q_k} }\delta q + \PD{\L}{t}}] = 0
+ \end{split}
+\end{equation}
+In the final line of Eq(\ref{eq:4}), the first term and last term are vanished because of fixed initial, final point and no explicit time dependency of Lagrangian.
+Thus, we finally get the Euler-Lagrange equation.
+
+\begin{equation}
+ \OD\BKS{\PD{\L}{\dot{q}_k}} - \PD{\L}{q_k} = 0
+\end{equation}
+
+And the Lagrangian is defined as $\L = T - V$. ($T$ is kinetic energy, and $V$ is potential energy.)
+
+\VS
+\VS
+\VS
+\paragraph{Noether's Theorem}
+\VS
+\begin{theorem}[Noether's Theorem]
+ When an action has a symmetry, we can derive a conserved quantity. In other words, for symmetric transformation, there exists invariant quantity.
+\end{theorem}
+\VS
+\begin{proof}
+\begin{quote}
+ Let denote infinitesimal symmetric transformation $\delta_s$. For this symmetric transformation, action should be invariant. Thus,
+\end{quote}
+\VS
+\begin{equation}
+\begin{split}
+  \delta_s S & = \Act[\delta_s \L]  \\
+             & = \Act[\BKS{\PD{\L}{q_k}\delta_s q_k + \PD{\L}{\dot{q}_k} \delta_s \dot{q}_k }] \\
+             & = \Act[\BKS{\OD\BKS{\PD{\L}{\dot{q}_k}\delta_s q_k} - \BKS{\OD\BKS{\PD{\L}{\dot{q}_k}} - \PD{\L}{q_k}} \delta_s q_k }]\\
+             & = \Act[\BKS{\OD\BKS{\PD{\L}{\dot{q}_k}\delta_s q_k}}]\\
+             & = \At{\BKS{\PD{\L}{\dot{q}_k}\delta_s q_k}  }{t_i}^{t_f} = 0 \HS \textit{for any period of times} \hs (t_i, t_f) \\
+             \therefore \hs & \OD \BKS{\PD{\L}{\dot{q}_k}\delta_s q_k} = 0  \HS\HS (\PD{\L}{\dot{q}_k}\delta_s q_k \hs \textnormal{is called} \hs \textbf{Noether Current})
+\end{split}
+\end{equation}
+\end{proof}
+\VS
+
+\begin{example}
+ \normalfont
+ Consider relativistic free particle. With $g_{\mu\nu}=diag(1,-1,-1,-1)$ metric convention, $ds^2=g_{\mu\nu}dx^\mu dx^\nu=c^2dt^2-d\vec{x}^2\Com ds=cdt\sqrt{1-v^2/c^2}$
+ \begin{gather}
+  \begin{split}
+  S&=-mc\int ds=-mc^2\int\sqrt{1-\tfrac{v^2}{c^2}}dt \hs\hs \equiv\int\L dt \\
+  \therefore \hs \L&=-mc^2\sqrt{1-\tfrac{v^2}{c^2}} \simeq -mc^2+\frac{1}{2}mv^2 \hs \hs (v\ll c)
+  \end{split}
+ \end{gather}
+\end{example}
+ 
+ 
+\begin{example}
+ \normalfont
+ Consider relativistic charged particle under electromagnetic field. With same metric convention as above and $A^\mu=(\phi,\vec{A})$, 
+ \begin{gather}
+  \begin{split}
+   S&=-mc\int ds-\frac{e}{c}\int A_\mu dx^\nu \\
+    &=\int \BKS{-mc^2\sqrt{1-\tfrac{v^2}{c^2}}-e\phi}dt + \frac{e}{c}\vec{A}\cdot\vec{x} \\
+    &=\int \BKS{-mc^2\sqrt{1-\tfrac{v^2}{c^2}}-e\phi+\frac{e}{c}\vec{A}\cdot\vec{v}}dt \hs\hs \equiv \int \L dt \\
+   \therefore \hs \L&=-mc^2\sqrt{1-\tfrac{v^2}{c^2}}-e\phi+\frac{e}{c}\vec{A}\cdot\vec{v}
+  \end{split}
+ \end{gather}
+ 
+ Then Euler-Lagrange equation of this lagrangian becomes:
+ \begin{gather}
+  \begin{split}
+   \PD{\L}{\vec{x}}&=\frac{e}{c}\vec{\nabla}(\vec{A}\cdot\vec{v})-e\vec{\nabla}\phi \\
+             &=\frac{e}{c}[(\vec{v}\cdot\vec{\nabla})\vec{A}+\vec{v}\times(\vec{\nabla}\times\vec{A})]-e\vec{\nabla}\phi \\
+   \PD{\L}{\dot{\vec{x}}}&=\frac{m\vec{v}}{\sqrt{1-\tfrac{v^2}{c^2}}}+\frac{e}{c}\vec{A} \Com \hs\hs \frac{d\vec{A}}{dt}=\PD{\vec{A}}{t}+(\vec{v}\cdot\vec{\nabla})\vec{A} \\
+   \therefore \hs\hs \frac{d\vec{p}_k}{dt}&=e\BKS{-\frac{1}{c}\PD{\vec{A}}{t}-\vec{\nabla}\phi+\frac{1}{c}\vec{v}\times(\vec{\nabla}\times\vec{A})}\hs\hs\hs\hs (\vec{p}_k\equiv\frac{m\vec{v}}{\sqrt{1-v^2/c^2}}) \\
+             &=e\BKS{\vec{E}+\tfrac{1}{c}\vec{v}\times\vec{B}} \hs\hs\hs\hs(\vec{E}=-\frac{1}{c}\PD{\vec{A}}{t}-\vec{\nabla}\phi \Com \vec{B}=\vec{\nabla}\times\vec{A})                                      
+   \end{split}
+ \end{gather}
+In non-relativistic limit, $\vec{p}_k=m\vec{v}\Com \frac{d\vec{p}_k}{dt}=m\ddot{\vec{x}}=\vec{F}=e[\vec{E}+\frac{1}{c}\vec{v}\times\vec{B}]$ which is well known \textbf{Lorentz Force}
+\end{example}
+
+\newpage
+
+\subsection{Hamiltonian Mechanics}
+
+\VS
+
+Now consider rate of chage of Lagrangian.
+
+\begin{gather}
+ \OD[\L] = \PD{\L}{t} + \PD{\L}{q}\q + \PD{\L}{\q}\ddot{q} = \PD{\L}{t} + \dot{p}\q + p\ddot{q} = \PD{\L}{t} + \OD \BKS{p\q} \nonumber \\
+ \OD \BKS{p\q - \L} = - \PD{\L}{t} = 0        
+\end{gather}
+Thus, $p\q -\L$ is conserved quantity and we call it \textbf{Hamiltonian}. ($\Rightarrow \hs H \equiv p\q -\L$)
+\VS
+\begin{theorem}[Legendre transform]
+ The Hamiltonian is Legendre transform of Lagrangian.
+\end{theorem}
+\VS
+\begin{proof}
+ \begin{gather}
+ \label{eq:8}
+  \begin{split}
+   dH &= d(p\q - \L) = dp\q + pd\q - d\L \\
+       &= dp\q + pd\q - (\dot{p}dq + pd\q) \\
+       &= \q dp - \dot{p}dq       
+  \end{split} \\
+  \therefore \hs H = H (p,q) \nonumber
+ \end{gather}
+\end{proof}
+\VS
+And we can derive \textbf{Hamilton equation} from Eq(\ref{eq:8}).
+
+\begin{equation}
+ \PD{H}{p_k} = \q_k\Com \PD{H}{q_k} = - \dot{p}_k
+\end{equation}
+Then what difference between Hamiltonian formalism and Lagrangian formalism?
+
+\begin{itemize}
+ \item \textit{Lagrangian}
+  \begin{itemize}
+    \item $N$ equations \& 2nd order differential equation. $\Rightarrow$ $2N$ constraints.
+    \item Useful to find symmetry.
+  \end{itemize}
+ \item \textit{Hamiltonian}
+  \begin{itemize}
+    \item $2N$ equations \& 1st order differential equation. $\Rightarrow$ $2N$ constraints.
+    \item Useful to solve system with conserved quantity.
+  \end{itemize}
+\end{itemize}
+
+\VS
+
+Now, obtain the Hamiltonian for $ T = \sum_{i,j} K_{ij}\q_i \q_j , V = V(q)$. ($K_{ij}$ is symmetric)
+
+\begin{gather}
+ \begin{split}
+  H & = \sum_k \PD{\L}{\q_k}\q_k - \L \\
+     & = 2 \sum_{i,k} K_{ik} \q_i \q_k - \BKS{ \sum_{i,j} K_{ij} \q_i \q_j - V(q) } \\
+     & = T + V = E
+ \end{split}
+\end{gather}
+
+\newpage
+
+\begin{theorem}[Liouville's Theorem]
+ The shape of the region in phase space would generaically change during time evolution. But the volume remains the same.
+\end{theorem}
+
+\VS
+
+\begin{proof}
+
+\begin{quote}
+Consider an infinitesimal volume evolve over infinitesimal time. Then an infinitesimal volume V of a neighbourhood of the point $(q_i,p_i)$ in phase space is :
+\begin{equation}
+ V=dq_1 ...dq_n \hs dp_1 ... dp_n
+\end{equation}
+After infinitesimal time, phase space elements evolve to :
+\begin{gather}
+ \begin{split}
+  q_i \rightarrow q_i + \dot{q}_idt = q_i + \PD{H}{p_i}\equiv\Tilde{q}_i \\
+  p_i \rightarrow p_i + \dot{p}_idt = p_i - \PD{H}{q_i}\equiv\Tilde{p}_i
+ \end{split}
+\end{gather}
+So evolved volume in phase space is :
+\begin{equation}
+  \Tilde{V}=d\Tilde{q}_1 ...d\Tilde{q}_n \hs d\Tilde{p}_1 ... d\Tilde{p}_n=(det\hs \mathcal{J})\hs V
+\end{equation}
+Where det$\hs\mathcal{J}$ is the Jacobian of $2n \times 2n$ matrix \vs
+\begin{equation}
+\hs \left(
+\begin{array}{cc}
+ \partial\Tilde{q}_i/\partial q_j & \partial\Tilde{q}_i/\partial p_j \\ \partial\Tilde{p}_i/\partial q_j & \partial\Tilde{p}_i/\partial p_j
+\end{array}
+\right)
+\end{equation}\vs
+And we want to show that det$\hs\mathcal{J}$ equals to 1.
+\VS
+\begin{gather}
+ \begin{split}
+  det\hs\mathcal{J} &= det  
+\left(
+\begin{array}{cc}
+ \delta_{ij} + (\partial^2 H/\partial p_i \partial q_j)dt & (\partial^2 H/\partial p_i \partial p_j)dt \\ -(\partial^2 H/\partial q_i \partial q_j)dt & \delta_{ij} + (\partial^2 H/\partial q_i \partial p_j)dt
+\end{array}
+\right) \\ \\ 
+det\hs\mathcal{J} &= 1+\Sigma_i \left( \frac{\partial^2 H}{\partial p_i \partial q_i}-\frac{\partial^2 H}{\partial q_i \partial p_i}\right)dt + \HOT{dt^2}=1+\HOT{dt^2} \\
+&\HS\HS\Leftarrow\left(det(1+\epsilon M)=1+\epsilon TrM +\HOT{\epsilon^2}\right) \HS \textnormal{for any matrix M, small}\hs \epsilon 
+ \end{split}
+\end{gather}
+\end{quote}
+
+\end{proof}
+
+
+\newpage
+
+\paragraph{Poisson Bracket}
+\VS
+
+Let $A(p,q)$ be a physical quantity. Then consider the rate of change of $A$:
+
+\begin{gather}
+ \begin{split}
+  \OD[A][t] &= \PD{A}{q} \OD[q][t] + \PD{A}{p} \OD[p][t] \\
+            &= \PD{A}{q} \PD{H}{P} - \PD{A}{p} \PD{H}{q} \\
+            & \equiv \PKS[A] \HS \textbf{- Poisson Bracket}
+ \end{split}
+\end{gather}
+
+\begin{equation*}
+ \BKS{\PKS[\alpha][\beta] = \PD{\alpha}{q} \PD{\beta}{p} - \PD{\alpha}{p} \PD{\beta}{q}}
+\end{equation*}
+\VS
+Let's see properties of Poisson bracket.
+
+\begin{itemize}
+ \item \textline[t]{$\PKS[A][{\PKS[B][C]}] + \PKS[B][{\PKS[C][A]}] + \PKS[C][{\PKS[A][B]}] = 0$}{}{- Jacobi Identity}
+ \item \textline[t]{$\PKS[A][B] = - \PKS[B][A]$}{}{- Anti-Commute}
+ \item \textline[t]{$\PKS[q_i][q_j] = 0 = \PKS[p_i][p_j]\Com\PKS[q_i][p_j] = \delta_{ij}$}{}{- Fundamental Commute Relation} 
+\end{itemize}
+
+\VS
+
+\begin{example}
+ \normalfont
+ Consider 1D free particle. For this particle $H =\frac{p^2}{2m}$. Then think about time derivative of $A(p,q)$ for this particle.
+ \begin{equation}
+  \OD[A][t] = \PKS[A][H] = \PD{A}{q} \frac{p}{m} =
+  \begin{cases}
+   A = p \hs : \hs \OD[p][t] = 0 \\
+   A = q \hs : \hs \OD[q][t] = \frac{p}{m}
+  \end{cases}
+ \end{equation}
+ Thus, it is possible to explain classical mechanics by Poisson bracket.
+\end{example}
+
+\VS
+
+\begin{example}
+ \normalfont
+ Consider 1D simple harmonic oscillator.  $H = \frac{p^2}{2m} + \frac{1}{2}k q^2$. As before, time derivative of $A(p,q)$ is as follows.
+ \begin{equation}
+  \OD[A][t] = \PKS[A][H] = \PD{A}{q} \frac{p}{m} - \PD{A}{p} \hs kq=
+  \begin{cases}
+   A = p \hs : \hs \OD[p][t] = -kq \hs\hs \textnormal{(Hooke's Law)}\\
+   A = q \hs : \hs \OD[q][t] = \frac{p}{m}
+  \end{cases}
+ \end{equation} 
+\end{example}
+
+
+\newpage
+
+\section{Quantum Mechanics}
+
+\VS
+
+\subsection{Fundamentals of QM}
+\paragraph{Physical State}
+
+The physical state in QM is defined as a ray in Hilbert space. Hilbert space is complex vector space, so it has properties of vector space.
+
+\begin{itemize}
+ \item[Norm]: $\| \ket{\psi} \| ^2 = \braket{\psi | \psi}$
+ \vs
+ \item[Closed]: $\forall \hket, \ket{\phi} \in \H\Com \rightarrow \hs a\hket + b\ket{\phi} \in \H \HS (a,b\in\mathbb{C}) $
+ \vs
+ \item[Linear1]: $\braket{\phi | a\phi_1 + b\phi_2} = \braket{\psi | a\phi_1} + \braket{\psi|b\phi_2} = a\braket{\psi|\phi_1} + b\braket{\psi|\phi_2}$
+ \vs
+ \item[C.C]\footnotemark[1]: $\braket{\phi|\psi}^{*} = \braket{\psi|\phi}$
+ \vs
+ \item[Linear2]: $\braket{a\phi_1 + b\phi_2|\psi} = a^* \braket{\phi_1 | \psi} + b^*\braket{\phi_2|\psi}$ 
+\end{itemize}
+
+\VS
+
+\paragraph{Observables}
+
+\VS
+
+Observable is an operator on $\H$ ($\O : \H \rightarrow \H$) which is 'Hermitian'.\footnotemark[2]
+As we know, hermitian operator has real eigenvalues. So, eigenvalues of observables are real. And observables should satisfy below commutate relation.
+
+\begin{equation}
+\label{eq:22}
+ \Commutator[\hs][\hs] = i\hbar \PKS[\hs][\hs]
+\end{equation}
+L.H.S is commutator ($\Commutator[A][B] = AB-BA$) and R.H.S is Poisson Bracket.\footnotemark[3]
+Specifically, $\Commutator[X][P] = i\hbar$.
+\footnotetext[1]{Complex Conjugate}
+\footnotetext[2]{An operator that hermitian conjugate of the operator is same as the operator}
+\footnotetext[3]{Precisely, expectation value follows this relation, not operator. Search 'Ehrenfest Theorem'}
+
+\paragraph{Transition Probability}
+
+\VS
+
+For $\ket{\psi_1} \in \mathcal{R}_1\Com \ket{\psi_2} \in \mathcal{R}_2$, the transitional amplitude of $\mathcal{R}_1 \rightarrow \mathcal{R}_2$ is given as
+$|\braket{\psi_2|\psi_1}|^2$
+
+\noindent
+If $\{ \hket[\psi_i] \}$ is complete, then $\sum_i \ket{\psi_i}\bra{\psi_i} = \mathbb{1}$. Thus, we can write an arbitrary state $\hket$ as
+
+\begin{equation}
+ \hket = \mathbb{1} \hket = \sum_n \ket{n}\braket{n|\psi} \equiv \sum_n \psi_n \ket{n}
+\end{equation}
+
+If $\braket{m|n} = \delta_{mn}$, then $\{n\}$ is orthonormal basis. For continuous basis,
+$\mathbb{1} = \int dx \ket{x}\bra{x}$. 
+
+\begin{equation}
+ \hket = \int dx \ket{x}\braket{x|\psi} \equiv \int dx \hs \psi(x) \ket{x}
+\end{equation}
+
+$\psi(x)$ is called wave function. Also, $\braket{x|y} = \delta(x-y)$.
+
+\newpage
+
+\subsection{Quantization}
+
+We have seen the commutate rule at Eq(\ref{eq:22}). Then we have
+
+\begin{gather}
+\begin{split}
+ \Commutator[\hq_i][\hp_j] &= i\hbar \delta_{ij} \\
+ \Commutator[\hq_i][\hq_j] =\hs& 0\hs = \Commutator[\hp_i][\hp_j]
+\end{split}
+\end{gather}
+
+For classical mechanics, a physical quantity $A(p,q)$ satisfy $\dfrac{dA}{dt} = \PKS[A]$. Then, in QM, 
+
+\vs
+
+\begin{equation*}
+ \OD[\hat{A}_H(t)] = \frac{1}{i\hbar} \Commutator[\hat{A}_H(t)][\hH]
+\end{equation*}
+
+The subindex $H$ means Heisenberg picture and this equation is called \textbf{Heisenberg E.O.M}. 
+
+Then we can find simple solution:
+
+\begin{equation}
+ \hA_H(t) = \TE{} \hA(0) \TE{-} \hs \footnotemark[1]
+\end{equation}
+
+\footnotetext[1]{For convenience, let $\hbar = 1$ (natural unit)}
+
+Then we can check:
+
+\begin{equation}
+ \begin{split}
+  \OD[\hA_H] &= \TE{}\BKS{i\hH \hA(0) - \hA(0) (i\hH) } \TE{-} \\
+	     &= \frac{1}{i} \TE{} \Commutator[\hA(0)] \TE{-} \\
+	     &= \frac{1}{i} \Commutator[\hA_H(t)]
+ \end{split}
+\end{equation}
+
+\VS
+
+\paragraph{Expectation Value}
+
+The expectation value of $\hA_H(t)$ with respect to $\hket$ is defined as:
+
+\begin{equation}
+ \begin{split}
+  \braket{\hA_H(t)}_\psi &= \braket{\psi|\hA_H(t)|\psi} \\
+                         &= \braket{\psi|\TE{}\hA(0)\TE{-}|\psi} = \braket{\psi(t)|\hA(0)|\psi(t)}
+ \end{split}
+\end{equation}
+
+$\bra{\psi(t)}, \ket{\psi(t)}$ is called time-dependent state and denoted $\tensor[_s]{\bra{\psi}}{}, \tensor{\hket}{_s}$.
+And $\hA(0)$ is called time-independent operator and denoted $\hA_s$. The subindex $s$ represent schr\"{o}dinger picture.
+
+\VS
+
+\textbf{[Please input table of difference of Schr\"{o}dinger and Heisenberg]}
+
+\newpage
+
+\subsection{Schr\"{o}dinger Equation}
+
+\VS
+\VS
+
+In schr\"{o}dinger picture, we have next equation:
+\begin{equation}
+\begin{split}
+ i \PD{}{t} \sket{} &= i \PD{}{t} \TE{-} \hket \\
+                    &= i(-i\hH) \TE{-} \hket = \hH \sket \\
+ \therefore i\PD{}{t} \sket{} &=\hH \sket 
+\end{split}
+\end{equation}
+
+Let's see this on configuration space:
+
+\begin{equation}
+\begin{split}
+ L.H.S \hs & : \hs \braket{x| i\PD{}{t}|\psi(t)} = i\PD{}{t}\braket{x|\psi(t)} \equiv i\PD{}{t}\psi(x,t)  \\
+ R.H.S \hs & : \hs \braket{x| \hH |\psi(t)} = \frac{1}{2m} \braket{x| \hP^2|\psi(t)} + V(x) \psi(x,t)
+\end{split}
+\end{equation}
+
+To solve this wave equation, we use Fourier Transform between momentum space \& configuration space. First, we have next facts:
+
+\begin{multicols}{2}
+  \begin{itemize}
+    \item $\hX\ket{x} = x\ket{x}$
+    \item $\hP\ket{p} = p\ket{p}$
+  \end{itemize}
+  
+  \begin{itemize}
+   \item $\braket{x|\hX|\psi} = x\braket{x|\psi} = x\psi(x)$
+   \item $\braket{p|\hP|\psi} = p\braket{p|\psi} = p\psi(p)$
+  \end{itemize}
+\end{multicols}
+
+Second, let's see next lemma:
+
+\VS
+
+\begin{lemma}
+ Momentum operator is a generator of spartial translation.
+\end{lemma}
+
+\begin{proof}
+\begin{quote}
+  Let $\hU(a) = e^{-ia\hP}$. Then we can find below commutate relation.
+  
+  \begin{equation}
+   \begin{split}
+    \Commutator[\hX][\hU(a)] &= \Commutator[\hX][\sum_n \frac{(-ia\hP)^n}{n!}] = \sum_n \frac{(-ia)^n}{n!}\Commutator[\hX][\hP^n] \\
+                             &= \sum_n \frac{a^n (-i)^{n-1}\hP^{n-1}}{(n-1)!} = a e^{-ia\hP} = a\hU(a)
+   \end{split}
+  \end{equation}
+  
+  Thus, we can find next property of $\hU(a)$:
+  
+  \begin{equation}
+   \hX \hU(a) \ket{x} = \BKS{\Commutator[\hX][\hU(a)] + \hU(a) \hX }\ket{x} = (a + x) \hU(a)\ket{x}
+  \end{equation}
+
+  If we assume normalization, then we can write next equation. Then Q.E.D
+  
+  \begin{equation}
+   \therefore e^{-ia\hP} \ket{x} = \ket{x+a}
+  \end{equation}
+
+\end{quote}
+\end{proof}
+
+\newpage
+
+\paragraph{Momentum Operator}
+
+\VS
+
+We know momentum operator is a generator of spatial translation. Thus, for small translation denoted $\eps$, we can obtain momentum operator on configuration space
+by Lemma(1).
+
+\begin{gather}
+\nonumber
+ \hU(\eps)\ket{x} = \ket{x+\eps} \simeq \BKS{1-i\eps\hP}\ket{x} \\ 
+ \Rightarrow \lim_{\eps \rightarrow 0} \frac{\ket{x+\eps} - \ket{x}  }{-i\eps } = \hP \ket{x} \\
+ \nonumber
+ \therefore \hP\ket{x} = i\PD{}{x} \ket{x}
+\end{gather}
+
+Then we can also find $\braket{x|\hP|\psi} = -i \PD{}{x} \braket{x|\psi} = -i \PD{}{x} \psi(x)$.\hs\hs So, $\hP = -i\PD{}{x}$.
+
+\VS
+\vs
+
+For relativistic theory, we can rewrite momentum operator as 4-vector notation.\footnotemark[1] \footnotetext[1]{We choose natural unit : $c=\hbar=1$}
+\begin{equation}
+ P_\mu = \BKS{H, -P^i} = \BKS{i\OD, i\PD{}{x^i}} = i\partial_\mu \HS\hs (\partial_\mu = \PD{}{x^{\mu}})
+\end{equation}
+
+\VS
+\vs
+
+Now, we can write Fourier transform between momentum space \& configuration space.
+
+\VS
+
+\begin{lemma}
+ $\braket{x|p} = \dfrac{1}{\sqrt{2\pi}} e^{ipx} = \braket{p|x}^*$
+\end{lemma}
+
+\begin{proof}
+ \begin{quote}
+  We have $\braket{x|\hP|p} = p\braket{x|p} \equiv p \phi_p (x)$. Then we can find $\phi_p(x)$ by using another state $\ket{x'}$
+  
+  \begin{equation*}
+   \begin{split}
+    \braket{x|\hP|p} &= \int dx' \braket{x|\hP|x'} \braket{x'|p} \\
+                     &= \int dx' i\BKS{\OD[][x'] \delta(x'-x)}\phi_p(x') \\
+                     &= -i \int dx' \delta(x'-x) \OD[][x'] (\phi_p(x')) \hs\hs \footnotemark[2]\\
+                     &= -i \OD[][x] \phi_p(x) = p\phi_p(x)
+   \end{split}
+  \end{equation*}
+  \begin{equation}
+   \therefore \phi_p(x) = \frac{1}{\sqrt{2\pi}} e^{ipx} \hs \hs \footnotemark[3]
+  \end{equation}
+  
+ \end{quote}
+\footnotetext[2]{Total derivative term is vanished.}
+\footnotetext[3]{We choose $\tfrac{1}{\sqrt{2\pi}}$ to normalize eigenstates.}
+\end{proof}
+
+\vs
+
+And we know $\braket{x|\hP^2|\psi} = \BKS{-i\PD{}{x}}^2 \braket{x|\psi} = - \PPD{}{x} \psi(x)$. Then we can write next equation.
+
+\vs
+
+\begin{equation}
+ i\PD{}{t}\psi(x,t) = - \frac{1}{2m}\PPD{}{x} \psi(x,t) + V(x)\psi(x,t)
+\end{equation}
+
+\vs
+
+This equation is called \textbf{Schr\"{o}dinger equation}.
+
+\pagebreak
+
+Since the schr\"{o}dinger equation is kind of wave equation, we can solve it by separation of variables.
+Let $\psi(x,t) = T(t) \phi(x)$.
+\begin{equation}
+ \begin{split}
+  L.H.S &: i\PD{}{t}\psi(x,t) = i\phi(x)\dot{T}(t) \\
+  R.H.S &: -\dfrac{1}{2m} \PPD{}{x} \psi(x,t) +V(x)\psi(x,t) = -\dfrac{1}{2m}T\phi''(x)+V(x)T(t)\phi(x) \\
+  \Rightarrow \frac{i\dot{T}}{T} &= \frac{\BKS{-\tfrac{1}{2m}\phi'' +V\phi}}{\phi} = E \\
+ \end{split}
+\end{equation}
+
+\vs
+
+Then we can get next two ordinary differential equations.
+
+\begin{equation}
+\label{eq:39}
+ \begin{split}
+  \textbf{Time} &: i\dot{T}(t) = ET(t) \Rightarrow T(t) = e^{-iEt} \\
+  \textbf{Spatial} &: -\dfrac{1}{2m}\phi''(x) + V(x)\phi(x) = E\phi(x)
+ \end{split}
+\end{equation}
+
+\vs
+
+The second equation of Eq(\ref{eq:39}) is called time-independent schr\"{o}dinger equation.
+
+\VS
+
+\begin{example}
+ \textbf{Please input SHO example}
+\end{example}
+
+\newpage
+
+\subsection{Quantum Symmetries}
+
+\VS
+
+\begin{exercise}[$A^+$]
+ Prove Heisenberg Uncertainty Principle by creative way.
+\end{exercise}
+
+\VS
+
+Consider transformation of rays \hs $T: \mathcal{R}_i \rightarrow \mathcal{R}'_i \HS (i=1,2)$. We call it symmetric transform if 
+$P(\R_1 \rightarrow \R_2) = P(\R'_1 \rightarrow \R'_2)$. 
+
+\vs
+
+In other words, for $\ket{\psi_1}\in\R_1\Com\ket{\psi_2}\in\R_2\Com\ket{\psi'_1}\in\R'_1\Com\ket{\psi'_2}\in\R'_2$,
+\hs if \hs $ \Norm{\braket{\psi_1|\psi_2}} = \Norm{\braket{\psi'_1|\psi'_2}}$. then $T$ is symmetric transform.
+
+\VS
+
+\begin{theorem}[Wigner]
+ Any symmetry transformation can be represented on the Hilbert space of physical states by an operator that is either linear and unitary or
+ antilinear and antiunitary. \footnotemark[1]
+\end{theorem}
+
+\footnotetext[1]{S. Weinberg, The Symmetry Representation Theorem.\textit{The Quantum Theory of Fields, Vol.1}(pp.91-96), Cambridge}
+
+\begin{proof}
+ \begin{quote}
+  \textbf{Please input proof Kyung teacher. I believe you}
+ \end{quote}
+\end{proof}
+
+\newpage
+
+Now, consider three symmetric transformations.
+
+\begin{diagram}
+ \R    &\rTo^{T_1}      & \R'           &\rTo^{T_2}  & \R''  &\rTo^{T_3}  & \R'''
+\end{diagram}
+
+And their representations are $\hU(T_i) \HS (i=1,2,3)$. Let's see below diagram.
+
+\begin{diagram}
+ \hket &\rTo^{T_1}      & \hU(T_1)\hket   \\
+       &\rdTo^{T_2 T_1} & \dTo^{T_2}  \\
+       &                & \hU(T_2)\hU(T_1)\hket 
+\end{diagram}
+
+We can find $\hU(T_2 T_1) = \hU(T_2)\hU(T_1)$.  Then for three symmetric transformations, we can find below properties:
+
+\begin{itemize}
+ \item $T_1 \BKS{T_2 T_3} = \BKS{T_1 T_2}T_3$
+ \item $\mathbb{1}$ is also symmetric transform $T$
+ \item $\tensor[^\exists]{T}{^{-1}}$ such that $T^{-1}T = T T^{-1} = \mathbb{1}$ 
+\end{itemize}
+
+The set of operators which have above properties is called \textbf{Group}.
+
+\newpage
+
+\section{Group}
+
+\VS
+
+\subsection{Definitions \& Some examples}
+
+\vs
+
+\begin{definition}[A Group]
+\textnormal{
+ A set $G=\{g_1,g_2,g_3,\cdots\}$ is said to form a \textit{group}\footnotemark[1] if there is an operation $\ld$, called \textit{group multiplication},
+ which associates any given (ordered) pair of elements $g_1,g_2\in G$ with a well-defined \textit{product} $g_1\ld g_2$ which is also an element of $G$,
+ such that the following conditions are satisfied:}
+ 
+ \begin{enumerate}[i)]
+ \normalfont
+  \item \textline[t]{If $g_1 , g_2 \in G$ then $g_1 \ld g_2 \in G$}{}{-Closure} 
+  \item \textline[t]{$g_1\ld (g_2 \ld g_3)  =(g_1 \ld g_2)\ld g_3$ for all $g_1, g_2, g_3 \in G$}{}{-Associative}
+  \item \textline[t]{$\tensor[^\exists]{e}{} \in G$ such that $g\ld e = e \ld g = g$ for all $g\in G$}{}{-Identity}
+  \item \textline[t]{For $g \in G\Com \Ex{g}{^{-1}}\in G$ such that $g \ld g^{-1} = g^{-1} \ld g = e$}{}{-Inverse} 
+ \end{enumerate}
+\end{definition}
+
+\footnotetext[0]{Wu-Ki Tung, Basic Group Theory. \textit{Group Theory In Physics} (pp.12-13), World Scientific}
+\footnotetext[1]{Precisely, $(G,\ld)$ is called a group}
+
+
+\begin{definition}[Abelian Group]
+\normalfont
+ An \textit{abelian group} $G$ is one for which the group multiplication is commutative, i.e. $a\ld b=b\ld a$ for all $a,b \in G$.
+\end{definition}
+
+
+\begin{definition}[Order]
+ \normalfont
+ The \textit{order} of a group is the number of elements of the group (if it is finite).
+\end{definition}
+
+\vs
+
+\begin{example}[Cyclic Group]
+Cyclic groups are kinds of abelian group.
+
+\normalfont
+
+(1) $C_1 = \{e\}$
+
+(2) $C_2 = \{e, a\}$ \textbf{Please input Group multiplication table and denote example - parity, permutation}
+
+\VS
+\VS
+\VS
+
+(3) $C_3 = \{e,a,b\}$ \textbf{Please input Group multiplication table, rotation graph}
+
+\VS
+\VS
+\VS
+
+\end{example}
+
+\begin{theorem}
+ If the order $n$ of a group is a prime number, it must be isomorphic to $C_n$.\footnotemark[3]
+\end{theorem}
+\footnotetext[3]{It is a corollary of Cayley theorem}
+\newpage
+
+\begin{example}[Dihedral Group]
+ The simplest non-cyclic group.
+ 
+ \normalfont
+ (1) $D_2 = \{e,a,b,c\}$ \textbf{Please input Group multiplication table, Rectangle graph}
+ 
+ \VS
+ \VS
+ \VS
+ 
+ (2) $D_3 = \{e, (12), (23), (31), (123), (321)\}$ \textbf{Please input Group multiplication table, triangle graph}
+\end{example}
+
+
+%% \ackrule
+%\bibliographystyle{IEEEtran}
+%\bibliography{thesis}
+
+%\section*{Biographies}
+
+%\textbf{P. W. Wachulak} received the degree${\ldots}$ \\[6pt]
+%\textbf{M. C. Marconi} received the degree${\ldots}$ \\[6pt]
+%\textbf{R. A. Bartels} received the degree${\ldots}$ \\[6pt]
+%\textbf{C. S. Menoni} received the degree${\ldots}$ \\[6pt]
+%\textbf{J. J. Rocca} received the degree${\ldots}$
+
+
+\end{document}

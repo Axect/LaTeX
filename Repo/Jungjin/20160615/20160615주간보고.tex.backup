@@ -1,0 +1,275 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Daily Laboratory Book
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Frank Kuster (http://www.ctan.org/tex-archive/macros/latex/contrib/labbook/)
+%
+% Important note:
+% This template requires the labbook.cls file to be in the same directory as the
+% .tex file. The labbook.cls file provides the necessary structure to create the
+% lab book.
+%
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing lab book content.
+%
+% HOW TO USE THIS TEMPLATE 
+% Each day in the lab consists of three main things:
+%
+% 1. LABDAY: The first thing to put is the \labday{} command with a date in 
+% curly brackets, this will make a new page and put the date in big letters 
+% at the top.
+%
+% 2. EXPERIMENT: Next you need to specify what experiment(s) you are 
+% working on with an \experiment{} command with the experiment shorthand 
+% in the curly brackets. The experiment shorthand is defined in the 
+% 'DEFINITION OF EXPERIMENTS' section below, this means you can 
+% say \experiment{pcr} and the actual text written to the PDF will be what 
+% you set the 'pcr' experiment to be. If the experiment is a one off, you can 
+% just write it in the bracket without creating a shorthand. Note: if you don't 
+% want to have an experiment, just leave this out and it won't be printed.
+%
+% 3. CONTENT: Following the experiment is the content, i.e. what progress 
+% you made on the experiment that day.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[idxtotoc,hyperref,openany]{labbook} % 'openany' here removes the gap page between days, erase it to restore this gap; 'oneside' can also be added to remove the shift that odd pages have to the right for easier reading
+
+\usepackage[ 
+  backref=page,
+  pdfpagelabels=true,
+  plainpages=false,
+  colorlinks=true,
+  bookmarks=true,
+  pdfview=FitB]{hyperref} % Required for the hyperlinks within the PDF
+  
+\usepackage{booktabs} % Required for the top and bottom rules in the table
+\usepackage{float} % Required for specifying the exact location of a figure or table
+\usepackage{graphicx} % Required for including images
+\usepackage{kotex}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Command to make the lines in the title page
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF EXPERIMENTS
+%----------------------------------------------------------------------------------------
+
+\newexperiment{cc}{진도 현황}
+\newexperiment{at}{수업태도 및 출결상태}
+\newexperiment{tb}{교재목록}
+\newexperiment{cm}{비고사항}
+%\newexperiment{shorthand}{Description of the experiment}
+
+%---------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\frontmatter % Use Roman numerals for page numbers
+\title{
+\begin{center}
+\HRule \\[0.4cm]
+{\Huge \bfseries 정진학원 주간보고  \\[0.5cm] \Large 고등부 수학}\\[0.4cm] % Degree
+\HRule \\[1.5cm]
+\end{center}
+}
+\author{\LARGE 김태근 \\  \\[2cm]} % Your name and email address
+\date{\today} % Beginning date
+\maketitle
+
+\tableofcontents
+
+\mainmatter % Use Arabic numerals for page numbers
+
+%----------------------------------------------------------------------------------------
+%	LAB BOOK CONTENTS
+%----------------------------------------------------------------------------------------
+
+% Blank template to use for new days:
+
+%\labday{Day, Date Month Year}
+
+%\experiment{}
+
+%Text
+
+%-----------------------------------------
+
+%\experiment{}
+
+%Text
+
+%----------------------------------------------------------------------------------------
+
+\labday{2016.06.09 $-$ 2016.06.11}
+
+\experiment{tb}
+
+\begin{table}[h]
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{c||c|c}
+\toprule
+\midrule
+학년 & \multicolumn{2}{c}{교재 목록} \\
+\hhline{=||==}
+고1 & 내신 & 메시지 수학1 \\
+\hline
+고2 & 내신 & 메시지 미적분1, 메시지 기하와벡터\\
+\hline
+\multirow{3}{*}{고3} & 공통 & 수능특강 수학2 \& 미적분1, 확률과통계 \\ \hhline{~--}
+					& 문과 & BOB 수학2 복사본\\ \hhline{~--}
+					& 이과 & 메시지 미적분2, 개념유형 미적분2\\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{\label{tab:i} 고등부 수학 교재목록 }
+\end{table}
+
+\experiment{cc}
+
+
+\begin{table}[h]
+\centering
+\begin{adjustbox}{width=.9\textwidth}
+\begin{tabular}{c||c|c}
+\toprule
+\midrule
+학년 & \multicolumn{2}{c}{주간 진도 현황} \\
+\hhline{=||==}
+고1 & 내신 & \rom{2}. 직선의 방정식 $-$ 원의 방정식 \\
+\hline
+고2 & 내신 & \rom{3}. 다항함수의 미분법 (미적분1 시험범위 마지막)\\
+\hline
+\multirow{3}{*}{고3} & 공통 & 없음  \\ \hhline{~--}
+					& 문과 & 수열 - 2. 등비수열\\ \hhline{~--}
+					& 이과 & \rom{2}. 삼각함수 - 3. 삼각함수의 미분법  \\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{\label{tab:ii} 고등부 수학 진도 현황 }
+\end{table}
+
+%-----------------------------------------
+
+\experiment{at} % Multiple experiments can be included in a single day, this allows you to segment what was done each day into separate categories
+
+
+
+\begin{table}[H]
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{c|c||c|c|c|c|c}
+\toprule
+\midrule
+학년 & 이름 & 결석 & 숙제불이행 & 교재미지참 & 수업태도 & 종합태도점수 \\
+\hhline{=|=||=|=|=|=|=}
+\multirow{3}{*}{고1}			& 김주희 & 1 & 0 & 0 & 5 & 95   \\ \hhline{~------}
+					& 손예진 & 0 & 1 & 0 & 5 & 95  \\ \hhline{~------}
+					& 윤선영 & 0 & 0 & 0 & 5 & 100   \\
+\hline
+\multirow{1}{*}{고2}			& 안상호 & 1 & 0 & 0 & 4 & 83	\\ 
+\hline
+\multirow{2}{*}{고3}			& 김현우 & 0 & 1 & 0 & 5 & 95  \\ \hhline{~------}
+					& 장한수 & 0 & 1 & 0 & 5 & 95	\\
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{\label{tab:iii} 고등부 태도 현황 }
+\end{table}
+
+%-----------------------------------------
+
+\experiment{cm}
+\begin{itemize}
+	\item 이번 주는 다들 어느 정도 산만해서 수업집중도가 떨어졌음.
+	\item 상대적으로 결석이 빈번했으나 고3의 경우는 다들 수업에 열심히 임함.
+	\item 고2의 경우 상호가 결석 하기도 하였고 아파서 조퇴도 하였으므로 진도를 나가지 못함.
+	\item 고3의 경우 모의고사 대비 수업을 진행하였는데 결과가 꽤 좋지 못하여 앞으로 적극적인 보강이 필요함.
+\end{itemize}
+
+\experiment{교재 구입 예정 목록}
+
+
+\hspace{1cm}이제 목요일이면 6월 모의고사가 끝나게 되고 고3은 입시대비를 해야합니다. 그러나 중상위 이상의 대학들에는 대부분 최저학력이 존재하며 
+한수나 현우 역시 수시 원서의 반 정도는 최저가 있는 학교를 쓸지 모릅니다. 따라서 이제 기본 실력이 어느 정도 닦였으니 EBS를 풀어야 할 것 같습니다.
+다만 한수의 경우 솔터고에서 수학 가형을 대비해주지 않기에 수학 나형을 보아야 할지도 모르니 아직 교재는 미정입니다. 이는 이번 주 내로 결정하면 될 것 같습니다.
+
+\begin{table}[H]
+\centering
+\begin{adjustbox}{width=\textwidth}
+ \begin{tabular}{c||c|c}
+ \toprule
+ \midrule
+ 학년 & \multicolumn{2}{c}{교재목록} \\
+ \hhline{=||==}
+ \multirow{2}{*}{고3} & 문과 & 수능특강 수학2 \& 미적분1, 확률과통계, EBS N제 수학(나)형  \\ \hhline{~--}
+		      & 이과 & 미정 (6월 모의고사 후 결정) \\
+ \hline
+  
+ \end{tabular}
+
+\end{adjustbox}
+\caption{\label{tab:iv} 고3 교재구입목록}
+\end{table}
+
+
+\experiment{시험기간 일정}
+아직 시험일정이 하나밖에 안나와서 추후에 또 말씀드리겠습니다.
+\begin{itemize}
+ \item 6월 8일 (수) 저녁 7시 시험 : 따라서 고3은 이 날 수업을 진행하지 못할 듯 합니다.
+\end{itemize}
+
+
+%-----------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	FORMULAE AND MEDIA RECIPES
+%----------------------------------------------------------------------------------------
+
+------------------------------------------
+%	MEDIA RECIPES
+%----------------------------------------------------------------------------------------
+
+
+%-----------------------------------------
+
+%\textbf{Media 2}\\ \\
+
+%Description
+
+%----------------------------------------------------------------------------------------
+%	FORMULAE
+%----------------------------------------------------------------------------------------
+
+
+%-----------------------------------------
+
+%\textbf{Formula X - Description}\\ \\
+
+%Formula
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

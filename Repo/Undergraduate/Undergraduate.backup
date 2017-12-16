@@ -1,0 +1,154 @@
+\documentclass[a4,portrait,semrot]{seminar}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{kotex}
+\usepackage[skip=4pt]{caption}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{units}
+\usepackage{array}
+
+
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\pagestyle{empty}
+\renewcommand{\printlandscape}{\special{landscape}}
+\slideframe{none}
+\centerslidesfalse
+\slidesmag{3}
+\setlength{\slideheight}{183mm}
+\setlength{\slidewidth}{264mm}
+
+\makeatletter
+\newcommand{\armultirow}[3]{%
+  \multicolumn{#1}{#2}{%
+    \begin{picture}(0,0)%
+      \put(0,0){%
+        \begin{tabular}[t]{@{}#2@{}}%
+          #3%
+        \end{tabular}%
+      }%
+    \end{picture}%
+  }%
+}%
+
+\newcolumntype{f}{>{$}l<{$}}
+\newcolumntype{n}{l}
+\newcolumntype{N}{>{\scriptsize}l}
+\newcolumntype{v}[1]{>{\raggedright\hspace{0pt}}p{#1}}
+\newcolumntype{V}[1]{>{\scriptsize\raggedright\hspace{0pt}}p{#1}}
+%
+% array.sty, dcolumn.sty
+\newcolumntype{B}[1]{>{\boldmath\DC@{.}{,}{#1}}l<{\DC@end}}
+\newcolumntype{d}[1]{>{\DC@{.}{,}{#1}}l<{\DC@end}}
+\newcolumntype{i}[1]{>{\DC@{.}{,}{#1}\mathnormal\bgroup}l<{\egroup\DC@end}}
+\newcolumntype{s}[1]{>{\DC@{.}{,}{#1}\mathsf\bgroup}l<{\egroup\DC@end}}
+%
+% array.sty, rotating.sty
+\newcolumntype{R}[1]{%
+  >{\begin{turn}{90}\begin{minipage}{#1}\scriptsize\raggedright\hspace{0pt}}l%
+  <{\end{minipage}\end{turn}}%
+}
+%
+% array.sty, tabularx.sty
+\newcolumntype{x}{>{\scriptsize\raggedright\hspace{0pt}}X}
+\makeatother
+\begin{document}
+
+\begin{slide*}
+  \begin{table}
+    \centering
+    \caption{Undergraduate History}
+    \label{tab:und}
+    \begin{tabular}{@{}v{7em}c c cn@{}}
+      \toprule
+        &
+        \multicolumn{1}{N@{}}{Curriculum}&
+        \multicolumn{2}{N@{}}{Study}\\
+      \cmidrule(l){2-4}
+        &
+        \multicolumn{1}{V{12em}}{Subject} &
+        \multicolumn{1}{V{12em}}{Physics}    &
+        \multicolumn{1}{V{12em}}{Mathematics}\\
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}%
+        \cmidrule(l){5-5}
+        \armultirow{1}{@{}v{7em}}{Freshman \RNum{1}} &
+          Calculus \RNum{1} & Nothing & Calculus \\
+        & General Physics \RNum{1} &  \\
+        & General Chemistry \RNum{1} &  \\
+      \addlinespace
+        \armultirow{1}{@{}v{7em}}{Freshman \RNum{2}} &
+          Calculus \RNum{2}& Nothing & Nothing\\
+        & General Physics \RNum{2}&  \\
+        & General Chemistry \RNum{2}&  \\
+        \armultirow{1}{@{}v{7em}}{Sophomore \RNum{1}} &
+          ODE  & Classical Mechanics & Linear Algebra \\
+        & Linear Algebra \RNum{1} & (Landau) \\
+        & Classical Mechanics \RNum{1} &  \\
+      \addlinespace
+      \armultirow{1}{@{}v{7em}}{Sophomore \RNum{2}} &
+          Analysis \RNum{1} & Classical Field Theory & Analysis (Real \& Fourier) \\
+        & Fourier Analysis \RNum{1} & (Landau) \\
+        & Classical Mechanics \RNum{2} &  \\
+      \addlinespace
+      \armultirow{1}{@{}v{7em}}{Junior \RNum{1}} &
+          Abstract Algebra \RNum{1}  & Quantum Mechanics & Abstract Algebra \\
+        & Differential Geometry \RNum{1} & (Ashok Das) \\
+        & Quantum Mechanics \RNum{1} &  General Relativity \\
+        & & (Hobson)\\
+      \addlinespace
+      \armultirow{1}{@{}v{7em}}{Junior \RNum{2}} &
+          Analysis \RNum{2}  & General Relativity & Tensor Analysis \\
+        & Topology & (Harvey Reall) & Topology\\
+        & Solid State Physics \RNum{1} &  Quantum Mechanics \\
+        & & (Ashok Das)\\
+      \addlinespace
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{slide*}
+
+\begin{slide*}
+  \begin{table}
+    \centering
+    \footnotesize
+    \caption{Kathodenfallableiter}
+    \label{tab:kathoden}
+    \begin{tabular}{@{}nd{1.1}*{3}{d{1.2}}d{1.1}d{3.2}@{}}
+      \toprule
+        \multicolumn{1}{@{}N}{Typenbezeichnung} &
+        \multicolumn{5}{N}{Spannungsschutz für Netze} &
+        \multicolumn{1}{N@{}}{Preis} \\
+        &
+        \multicolumn{5}{N}{Leiterspannung an der Einbaustelle} \\
+      \cmidrule(lr){2-6}
+        &
+        \multicolumn{2}{V{6.5em}}{Nicht geerdeter Sternpunkt} &
+        \multicolumn{2}{V{6.5em}}{Starr geerdeter Sternpunkt} &
+        \multicolumn{1}{V{4em}}{Nenn"-spannung} \\
+      \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+        &
+        \multicolumn{1}{V{4.5em}}{Normale Leiterspannung} &
+        \multicolumn{1}{V{4.5em}}{Zulässiger Bereich} &
+        \multicolumn{1}{V{4.5em}}{Normale Leiterspannung} &
+        \multicolumn{1}{V{4.5em}}{Zulässiger Bereich} \\
+        &
+        \multicolumn{1}{N}{\unit{kV}} &
+        \multicolumn{1}{N}{\unit{kV}} &
+        \multicolumn{1}{N}{\unit{kV}} &
+        \multicolumn{1}{N}{\unit{kV}} &
+        \multicolumn{1}{N}{\unit{kV}} &
+        \multicolumn{1}{N}{DM} \\
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}%
+        \cmidrule(lr){5-5}\cmidrule(lr){6-6}\cmidrule(l){7-7}
+        H 484--1   & 1   & 1.15 & 1.25 & 1.45 & 1   & 220.$---$ \\
+        H 484--1,5 & 1.5 & 1.8  & 1.9  & 2.2  & 1.5 & 233.$---$ \\
+        H 484--2   & 2   & 2.3  & 2.5  & 2.9  & 2   & 252.$---$ \\
+        H 484--2,5 & 3   & 2.9  & 3.1  & 3.6  & 2.5 & 261.$---$ \\
+        H 484--3   & 3.5 & 3.5  & 3.8  & 4.3  & 3   & 264.$---$ \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{slide*}
+
+\end{document}

@@ -1,0 +1,386 @@
+\documentclass[10pt]{article}
+
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{lineno}
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{%
+  \errmessage{\noexpand\@combinedblfloats could not be patched}%
+}%
+\makeatother
+
+
+\usepackage[round]{natbib}
+\let\cite\citep
+
+
+
+
+\renewenvironment{abstract}
+  {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
+  {\bigskip}
+
+\renewenvironment{quote}
+  {\begin{tabular}{|p{13cm}}}
+  {\end{tabular}}
+
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*2}{*0.5}
+\titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
+
+
+\usepackage{authblk}
+
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{booktabs,array,multirow}
+\usepackage{amsfonts,amsmath,amssymb}
+\providecommand\citet{\cite}
+\providecommand\citep{\cite}
+\providecommand\citealt{\cite}
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
+
+\AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+
+\begin{document}
+
+\title{Higgs Inflation \& Thermal History}
+
+\author[1]{Tae Geun Kim}%
+\author[1]{Dhong Yeon Cheong}%
+\affil[1]{Yonsei University}%
+
+\vspace{-1em}
+
+  \date{\today}
+
+\begingroup
+\let\center\flushleft
+\let\endcenter\endflushleft
+\maketitle
+\endgroup
+
+\selectlanguage{english}
+
+\begin{abstract}
+Standard Model \& Cosmology have common thing - Fundamental Scalar
+Field. In SM, it is called Higgs and in Cosmology, it is called
+Inflaton. The most natural thing that we can think of is they are same -
+Higgs-Inflaton! But it's not scientific to leave it as a hypothesis, so
+we need to shape our model. To match experimental results, we should
+use~\textbf{Strong Non-minimal coupling of Higgs-Inflaton} to gravity.
+So, in this paper we will cover the Higgs-Inflaton as main topic and
+will actually match the experimental results. Of course, I will review
+some basic background knowledge before that. This paper is based
+on~\citet{Steinwachs_2014} \& \citet{Hamada_2015}.%
+\end{abstract}%
+
+
+
+\section*{1. General Relativity}
+
+{\label{269001}}\par\null
+
+\subsection*{1) Some Calculations of GR}
+
+{\label{951564}}\par\null
+
+1. Covariant Derivative
+
+\begin{equation}
+\nabla_{\mu}{T^{\nu_1\cdots\nu_r}}_{\rho_1\cdots\rho_s}=\partial_\mu {T^{\nu_1\cdots\nu_r}}_{\rho_1\cdots\rho_s} + \Gamma^{\nu_1}_{\mu\alpha}{T^{\alpha\cdots\nu_r}}_{\rho_1\cdots\rho_s} + \cdots + \Gamma^{\nu_r}_{\mu\alpha}{T^{\nu_1\cdots\alpha}}_{\rho_1\cdots\rho_s} - \Gamma^\alpha_{\mu\rho_1}{T^{\nu_1\cdots\nu_s}}_{\alpha\cdots\rho_s} - \Gamma^\alpha_{\mu\rho_s}{T^{\nu_1\cdots\nu_s}}_{\rho_1\cdots\alpha}
+\end{equation}
+
+2. Connection Coefficient (Levi-Civita)
+
+\begin{equation}
+\Gamma^\mu_{\nu\rho} = \frac{1}{2}g^{\mu\alpha}(g_{\nu\alpha,\rho}+g_{\alpha\rho,\nu}-g_{\nu\rho,\alpha})
+\end{equation}
+
+3. Covariant Derivative Example
+
+\begin{equation}
+\begin{gathered}
+\text{For Scalar Field $f$,    }~~\nabla_\mu f = \partial_\mu f \\
+\text{For Vector Field $V$,  }~~\nabla_\mu V^\mu  = \frac{1}{\sqrt{g}}\partial_\mu (\sqrt{g}V^\mu)
+\end{gathered}
+\end{equation}
+
+4. Normal Coordinates (Local Cartesian Coordinates)
+
+\begin{equation}
+\exists p \in \mathcal{M}~s.t~\Gamma^{\mu}_{\nu\rho}(p) = 0
+\end{equation}
+
+\par\null\par\null
+
+\subsection*{2) Einstein - Hilbert
+Action}
+
+{\label{657537}}\par\null
+
+Einstein-Hilbert actions is given as :
+
+\begin{equation}
+S_{EH} = \frac{M_p^2}{2}\int d^4x\sqrt{-g}R
+\end{equation}
+
+To use least action principle, we should know variation rule
+for~\(\sqrt{-g}\) and \(R\).
+
+\par\null
+
+1. Variation of \(g\)
+
+\begin{equation}
+\delta g = \frac{\partial g}{\partial g_{\mu\nu}}\delta g_{\mu\nu} = \frac{\partial}{\partial g_{\mu\nu}}\left(\Sigma_\sigma g_{\rho\sigma}\Delta^{\rho\sigma}\right) \cdot \delta g_{\mu\nu} = \Delta^{\mu\nu}\cdot\delta g_{\mu\nu} = gg^{\mu\nu}\delta g_{\mu\nu}= - gg_{\mu\nu}\delta g^{\mu\nu}
+\end{equation}
+
+2. Variation of~\(g^{\mu\nu}\)
+
+\begin{equation}
+\delta g^{\mu\nu}(g) = \frac{\partial g^{\mu\nu}}{\partial g} \delta g = \frac{\partial g^{\mu\nu}}{\partial g} gg^{\rho\sigma}\delta g_{\rho\sigma} = -\frac{\Delta^{\mu\nu}}{g^2} g g^{\rho\sigma}\delta g_{\rho\sigma} = -g^{\mu\nu}g^{\rho\sigma} \delta g_{\rho\sigma}
+\end{equation}
+
+3. Variation of~\(\sqrt{-g}\)
+
+\begin{equation}
+\delta(\sqrt{-g}) = -\frac{1}{2}\frac{1}{\sqrt{-g}}\delta g = -\frac{1}{2}\frac{1}{\sqrt{-g}}\left(-gg_{\mu\nu}\delta g^{\mu\nu}\right) = -\frac{1}{2}\sqrt{-g}g_{\mu\nu}\delta g^{\mu\nu}
+\end{equation}
+
+4. Palatini Identity
+
+~~~ Consider Normal Coordinate at~\(p\). Then we can find
+next things.
+
+\begin{equation}
+\begin{aligned}
+&R_{\mu\nu} = \Gamma^\lambda_{\mu\nu,\lambda} - \Gamma^\lambda_{\mu\lambda,\nu} \\
+\Rightarrow ~ & \delta R_{\mu\nu} = \delta \Gamma^\lambda_{\mu\nu,\lambda} - \delta \Gamma^\lambda_{\mu\lambda,\nu} \\
+\Rightarrow ~ & \delta R_{\mu\nu} = \delta \Gamma^\lambda_{\mu\nu;\lambda} - \delta\Gamma^\lambda_{\mu\lambda;\nu} 
+\end{aligned}
+\end{equation}
+
+5. Variation of \(R\)
+
+\begin{equation}
+\begin{gathered}
+\delta R = \delta(g^{\mu\nu}R_{\mu\nu}) = (\delta g^{\mu\nu})R_{\mu\nu} + g^{\mu\nu}(\delta R_{\mu\nu}) = R_{\mu\nu} \delta g^{\mu\nu}\\
+(g^{\mu\nu}(\delta\Gamma^\lambda_{\mu\nu;\lambda}-\delta\Gamma^\lambda_{\mu\lambda;\nu}) = 0)
+\end{gathered}
+\end{equation}
+
+~~~ (Because last terms are Surface Terms)
+
+\par\null
+
+6. Variation of Einstein-Hilbert Action
+
+\begin{equation}
+\delta(\sqrt{-g}R) = \sqrt{-g}\left(-\frac{1}{2}g_{\mu\nu}R + R_{\mu\nu}\right)\delta g^{\mu\nu} = \sqrt{-g}\left(R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R\right)\delta g^{\mu\nu} \equiv \sqrt{-g}G_{\mu\nu}\delta g^{\mu\nu}
+\end{equation}
+
+7. Einstein Equation
+
+~~~~1) Matter Action
+
+\begin{equation}
+S_m = \int d^4x\sqrt{-g}\mathcal{L} ~\Rightarrow~ \delta(\sqrt{-g}\mathcal{L}) = \sqrt{-g}\left(-\frac{1}{2}g_{\mu\nu}\mathcal{L} + \frac{\delta\mathcal{L}}{\delta g^{\mu\nu}}\right) \delta g^{\mu\nu}\equiv \sqrt{-g}(-\frac{1}{2}T_{\mu\nu})\delta g^{\mu\nu}
+\end{equation}
+
+~~~~2) Total Action
+
+\begin{equation}
+S = S_{EH} + S_m = \frac{M_p^2}{2}\int d^4x\sqrt{-g}\left(R + \frac{2}{M_p^2}\mathcal{L}\right)
+\end{equation}
+
+~~~~3) Euler-Lagrange Equation
+
+\begin{equation}
+\begin{gathered}
+\delta S = \frac{M_p^2}{2}\int d^4x \sqrt{-g} \left(G_{\mu\nu} - \frac{1}{M_p^2}T_{\mu\nu}\right)\delta g^{\mu\nu} \\
+\therefore G_{\mu\nu} = \frac{1}{M_p^2}T_{\mu\nu}
+\end{gathered}
+\end{equation}
+
+\subsection*{3) FLRW Cosmology}
+
+{\label{753948}}
+
+\subsubsection*{}
+
+{\label{729502}}
+
+\subsubsection*{1. Build Metric}
+
+{\label{339188}}\par\null
+
+1. Globally hyperbolic manifold with topology~ \(\mathcal{M} = \mathbb{R}\times\Sigma\)
+
+2. Arnowitt-Deser-Misner Method \& Decompose~\(\mathcal{M}\) into
+slice of~\(\Sigma_t\) at constant time \(t\).
+
+\begin{equation}
+ds^2 = \left[-N^2 + g^{ij}N_iN_j \right]dt^2 + 2N_i dt dx^i + g_{ij}dx^idx^j
+\end{equation}
+
+3. Spatial homogeneity \& Isotropy (Rotational Invariance)
+
+\begin{equation}
+ds^2 = -N^2(t)dt^2 + g_{ij}(t)dx^idx^j
+\end{equation}
+
+4. Homogeneity \& Isotropy -\textgreater{} Maximally Symmetric \& N = 1
+
+\begin{equation}
+ds^2 = -dt^2 + a^2(t)\left(\frac{dr^2}{1-\kappa r^2} + r^2d\Omega^2\right)
+\end{equation}
+
+5. Conformal Time
+
+\begin{equation}
+\begin{gathered}
+ds^2 = a^2(\eta)\left[-d\eta^2 + \left\{d\chi^2 + f(\chi)(d\theta^2 + \sin^2\theta d\phi^2)\right\}\right] \\
+f(\chi) \equiv
+\begin{cases}
+\sinh^2\chi ~ (\kappa=-1) \\
+\chi^2 ~ (\kappa = 0) \\
+\sin^2\chi ~ (\kappa = 1)
+\end{cases}
+\end{gathered}
+\end{equation}
+
+\subsubsection*{2. GR Calculation}
+
+{\label{315398}}\par\null
+
+0. Basic
+
+\begin{equation}
+g_{ii,0} = -2\frac{\dot{a}}{a}g_{ii}
+\end{equation}
+
+1. Connection Coefficient
+
+\begin{equation}
+\begin{aligned}
+\Gamma^i_{i0} &= \frac{1}{2}g^{ii}(g_{ii,0}+g_{i0,i}-g_{i0,i}) = \frac{1}{2} g^{ii} g_{ii,0} = \frac{\dot{a}}{a} \\
+\Gamma^0_{ii} &= \frac{1}{2}g^{00}(g_{i0,i}+g_{0i,i}-g_{ii,0}) = -\frac{1}{2}g^{00}g_{ii,0} = \frac{\dot{a}}{a}g_{ii} \\
+\Gamma^i_{jj} &= \frac{1}{2}g^{ii}(g_{ji,j}+g_{ij,j} - g_{jj,i}) = -\frac{1}{2}g^{ii}g_{jj,i}\\
+\end{aligned}
+\end{equation}
+
+2. Riemann Tensor
+
+\begin{equation}
+\begin{aligned}
+{R^{0i}}_{0i} &= g^{ii}({R^0}_{i0i}) = g^{ii}\left(\partial_0 \Gamma^0_{ii} - \partial_i \Gamma^0_{i0} + \Gamma^0_{\alpha 0}\Gamma^\alpha_{ii} - \Gamma^0_{\alpha i} \Gamma^\alpha_{i0}\right) \\
+&= g^{ii}\left(\partial_0\left(\frac{\dot{a}}{a}g_{ii}\right) - 0 + 0 - \frac{\dot{a}}{a}g_{ii}\frac{\dot{a}}{a}\right) \\
+& = \frac{\ddot{a}}{a}
+\end{aligned}
+\end{equation}
+
+3. Ricci Tensor
+
+\begin{equation}
+{R^0}_0 = \sum^{3}_{i=1} {R^{0i}}_{0i} = 3\frac{\ddot{a}}{a}
+\end{equation}
+
+4. Energy-Momentum Tensor
+
+\begin{equation}
+\begin{gathered}
+T_{\mu\nu} = (\rho+p)u_\mu u_\nu + P g_{\mu\nu} \\
+\rho = u^\mu u^\nu T_{\mu\nu} \\
+P = \frac{1}{3}(g^{\mu\nu}T_{\mu\nu}+\rho)
+\end{gathered}
+\end{equation}
+
+5. Energy Condition
+
+\par\null
+
+\begin{itemize}
+\tightlist
+\item
+  Null Energy Condition :~~\(X^{\mu}X^{\nu}T_{\mu\nu}\ \ge0\ \)~ for null-like vector
+  \(X^{\mu}\)
+\item
+  Weak Energy Condition : \(u^{\mu}u^{\nu}T_{\mu\nu}\ge0\)~ for time-like vector
+  \(u^{\mu}\)
+\item
+  Strong Energy Condition :~\(\left(T_{\mu\nu}-\frac{1}{2}g_{\mu\nu}T\right)u^{\mu}u^{\nu}\ \ge0\) for time-like vector.
+\end{itemize}
+
+If we define equation of state as~\(\omega\left(t\right)\ \equiv\frac{P\left(t\right)}{\rho\left(t\right)}\) then~
+
+\begin{itemize}
+\tightlist
+\item
+  NEC : \(\omega\ge-1\)
+\item
+  SEC : \(\omega\ge-\frac{1}{3}\)
+\item
+  WEC : \(\rho\ge0\)
+\end{itemize}
+
+\par\null
+
+6. Energy - Momentum Conservation
+
+\begin{equation}
+\begin{gathered}
+\nabla_a {T^a}_b= -\left(\frac{\partial \rho}{\partial t} + 3(\rho(t)+P(t))\frac{\dot{a}(t)}{a(t)} 
+\right)= 0 \\
+\Rightarrow ~ \dot{\rho} + 3H(\rho + P) = 0
+\end{gathered}
+\end{equation}
+
+7. Einstein Equation (Recommended to use CAS - Sagemath, Mathematica)
+
+\begin{equation}
+\begin{gathered}
+G_{00} = 3\frac{((\dot{a}(t))^2 + \kappa)}{a(t)^2} \\
+T_{00} = \rho(t)
+\end{gathered}
+\end{equation}
+
+\begin{equation}
+\begin{gathered}
+G_{00} = 8\pi GT_{00} \\
+\Rightarrow ~ H^2 = \frac{8\pi G\rho}{3} - \frac{\kappa}{a^2} 
+\end{gathered}
+\end{equation}
+
+8. Energy-Momentum + Eq of State
+
+\begin{equation}
+\dot{\rho} + 3H\rho(1+\omega) = 0 ~\Rightarrow~ \rho(a) \propto a^{-3(1+\omega)}
+\end{equation}
+
+\selectlanguage{english}
+\clearpage
+\end{document}
+

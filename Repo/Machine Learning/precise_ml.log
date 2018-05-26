@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.5.10)  26 MAY 2018 20:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.5.10)  26 MAY 2018 22:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1054,8 +1054,6 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
-
 Overfull \vbox (10.24994pt too high) has occurred while \output is active []
 
 
@@ -1072,22 +1070,56 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
+Overfull \vbox (10.24994pt too high) has occurred while \output is active []
+
+
+[4
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 220.
+
+Overfull \vbox (10.24994pt too high) has occurred while \output is active []
+
+
+[5
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 220.
  (./precise_ml.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 220.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 220.
 Package rerunfilecheck Info: File `precise_ml.out' has not changed.
 (rerunfilecheck)             Checksum: 11562333E85D2C082842BA371E39A019;96.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 220.
  ) 
 Here is how much of TeX's memory you used:
- 9687 strings out of 492982
- 138871 string characters out of 6138579
+ 9695 strings out of 492982
+ 138961 string characters out of 6138579
  255160 words of memory out of 5000000
- 13014 multiletter control sequences out of 15000+600000
- 147645 words of font info for 238 fonts, out of 8000000 for 9000
+ 13015 multiletter control sequences out of 15000+600000
+ 147942 words of font info for 239 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,8n,42p,1151b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,13n,42p,1151b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
@@ -1138,10 +1170,10 @@ s/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share
 urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><
 /usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on precise_ml.pdf (3 pages, 2287664 bytes).
+Output written on precise_ml.pdf (5 pages, 2336065 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
- 12 named destinations out of 1000 (max. 500000)
+ 290 PDF objects out of 1000 (max. 8388607)
+ 222 compressed objects within 3 object streams
+ 19 named destinations out of 1000 (max. 500000)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -34,6 +34,8 @@
 
 \tableofcontents
 
+\newpage
+
 \section[Introduction]{Introduction}
 
 \HS 우리는 자연을 관측하여 그것을 어떠한 논리를 이용하여 정해진 모델로 분류합니다. 이를 수학으로 표현하면 다음과 같습니다.
@@ -51,9 +53,9 @@
 즉, 우리의 관측은 비결정적(Undeterministic)이고 이를 표현하기 위해서는 데카르트의 결정적 수학을 넘어서야 합니다. 
 우리는 이러한 이론을  \textbf{확률론}(Probabilistic Theory)이라 부릅니다.
 
-\pagebreak
+\VS
 
-확률론을 사용하기 위하여 단순히 일차원적 변수를 넘어서 하나의 쌍을 메인 변수로 볼 것입니다. 
+\HS 확률론을 사용하기 위하여 단순히 일차원적 변수를 넘어서 하나의 쌍을 메인 변수로 볼 것입니다. 
 그리고 이제 Error의 정도를 확률을 사용하여 명시할 수 있습니다. 이를 역시 수학으로 기술하면 다음과 같습니다.
 
 \begin{itemize}
@@ -342,7 +344,7 @@ $$\int_\R f d\mu = \sum_{i=1}^{3} a_i \mu(E_i) = 1\times1 + 2\times 2 + 3\times 
 
 \newpage
 
-그 외 주요 정리들:
+르벡 적분의 주요 정리들:
 
 \begin{theorem}[Beppo - Levy Theorem]
 	If $f_n \rightarrow f~(mod~\mu)$ in a monotone increasing way then
@@ -365,7 +367,87 @@ $$\int_\R f d\mu = \sum_{i=1}^{3} a_i \mu(E_i) = 1\times1 + 2\times 2 + 3\times 
 	\HL
 \end{theorem}
 
-\
+위 정리들은 수학에서는 상당히 중요한 정리지만, 지금 당장 우리에게는 많이 필요한 것은 아니니 한 번 보고 넘어가면 충분합니다.
+
+\VS
+
+\HS 하지만 다음 정의들과 정리들은 꽤 중요하니 눈여겨 봐두시길 바랍니다.
+
+\begin{definition}[Induced Measure]
+	Let $(S, \F, \mu)$ be a measure space and $f$ be a measurable function. Then $f$ induces a measure $\nu$ on the Borel $\sigma$-algebra $\B$
+	$$\nu(B) = \mu(f^{-1}(B)),~ \forall B \in \B$$
+	
+	\HL
+\end{definition}
+
+\begin{theorem}[Change Measure]
+	Let $\nu$ be a measure on the Borel $\sigma$-algebra of $\mathbb{R}$ and let $f,g$ be measurable functions. Then $\forall B \in \B$,
+	$$\int_B g d\mu = \int_{f^{-1}(B)} g \circ f d\nu$$
+	
+	\HL
+\end{theorem}
+
+\newpage
+
+\begin{definition}[Product Measure]
+	Let $\nu_1,\nu_2$ be measures on $(S_1, \F_1),~(S_2, \F_2)$. Let $(S,\F)$ be measurable space such that $S = S_1\times S_2$ and $\F = F_1\times F_2$ whenever $F_1\in \F_1, ~ F_2\in \F_2$.
+	$\nu$ is called the product measure of $\nu_1, \nu_2$ on $\F$ if 
+	$$\nu(F_1 \times F_2) = \nu(F_1)\times \nu(F_2)$$
+	
+	\HL
+\end{definition}
+
+\begin{theorem}[Fubini's Theorem]
+	Let $h$ be a measurable function on the product space $(S,\F)$ then
+	$$\int_S h(u,v) d\mu = \int_{S_1}\Sbk{\int_{S_2} h(u,v) d\nu_2}d\nu_1 = \int_{S_2}\Sbk{\int_{S_1} h(u,v) d\nu_1}d\nu_2 $$
+	
+	\HL
+\end{theorem}
+
+위 정의와 정리들은 우리가 흔히 리만 적분에서 적분 변수를 변경할 때 사용했던 것과 비슷하므로 외우기는 쉬울 겁니다. 여기서는 굳이 증명이 필요치 않으니 생략하고 넘어가겠습니다.
+
+\VS
+
+\HS 그럼 이제 본격적으로 확률론의 세계로 들어가봅시다.
+
+\newpage
+
+\section{Probability Theory}
+
+\begin{definition}[Probability Space]
+	A Measure space $(\Omega, \F, \P)$ is called a probability space if $\P(\Omega) = 1$. $\Omega$ is called the sample space, the measurable sets are called events, and the measurable functions are called random variables. If $X_1,X_2,\cdots,X_n$ are random variables then $X = (X_1, X_2,\cdots,X_n)$ is a vector-valued random variable.
+	
+	\HL
+\end{definition}
+
+\HS 확률공간의 정의는 간단합니다. 어떤 측도공간 $(\Omega, \F, \P)$가 $\P(\Omega) = 1$을 만족할 때, 그 측도공간을 확률 공간이라 부른다는 것입니다. 또한, 전체 집합인 $\Omega$는 표본공간(Sample Space)이라 부르며 가측집합(Measurable Set)들은 사건(Events)이라 부르고 가측함수(Measurable Function)들은 확률변수(Random Variable)라고 부른다는 것이죠. 계속해서 다른 정의들을 봅시다.
+
+\begin{definition}[Distribution of Random Variables]
+	Let $X$ be a random variable, then $X$ induces the measure $\mu$ on the Borel $\sigma$-algebra of $\R$ by
+	$$\mu(B) = \P \Mbk{\{\omega:~ X(\omega)\in B\}} \equiv \P \Mbk{X\in B}, ~ B \in \B$$
+	The induced probability measure $\mu$ is called the distribution of random variable $X$.
+	
+	\HL
+\end{definition}
+
+앞에서 말한 Induced Measure가 뜬금없이 튀어나왔습니다. 하지만 굳이 Induced e 부분을 볼 필요는 없습니다. 여기서 기억해야 할 것은 $\mu(B) = \P \Mbk{X \in B}$ 입니다. 이는 우리가 아는 확률과 상당히 유사합니다. 집합 B에 확률변수 X가 들어갈 확률을 새로운 $\mu$라는 측도로 정의한 것이죠. 이때, $\mu$의 이름은 확률변수 $X$의 분포(Distribution)입니다. 즉, 확률분포를 구한다는 것은 측도 $\mu$를 구한다는 것과 동치입니다.
+
+\VS
+
+\HS 이제 볼 정의는 상당히 많이 쓰이므로 특히나 주의 깊게 보시길 바랍니다.
+
+\begin{definition}[Expectation]
+	Let $X$ be a random variable. The expectation of $X$ is the integral of $X$ with respect to distribution $\mu$ of $X$.
+	$$ \E\{X\} = \int_\R x \mu(dx)$$
+	
+	\HL
+\end{definition}
+
+적분 기호가 낯설 수 있는데 이는 보통 르벡 적분에 대해서 표현하는 방식이 여러가지기 때문입니다.
+$$\int_S f d\mu = \int_S f(s) \mu(ds) $$
+
+하지만 여전히 위 정의는 이상합니다. $X$ 에 대한 기댓값이라면서 $X$가 적분식에 포함되어 있지 않습니다. 하지만 자세히 보면 $\mu$가 $X$의 분포이기에 $\mu$ 안에 $X$의 값이 포함되어 있다는 것을 알 수 있습니다.
+
 %% \ackrule
 
 %\bibliographystyle{IEEEtran}

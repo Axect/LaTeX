@@ -447,7 +447,92 @@ $$\int_\R f d\mu = \sum_{i=1}^{3} a_i \mu(E_i) = 1\times1 + 2\times 2 + 3\times 
 $$\int_S f d\mu = \int_S f(s) \mu(ds) $$
 
 하지만 여전히 위 정의는 이상합니다. $X$ 에 대한 기댓값이라면서 $X$가 적분식에 포함되어 있지 않습니다. 하지만 자세히 보면 $\mu$가 $X$의 분포이기에 $\mu$ 안에 $X$의 값이 포함되어 있다는 것을 알 수 있습니다.
+이만 각설하고 기댓값의 정의가 나왔으니 당연하게도 분산의 정의가 등장해야곘죠.
 
+\newpage
+
+\begin{definition}[Variance]
+	Let $X$ be a random variable. The variance of $X$ is
+	$$ \Var\{X\} = \E \Mbk{(X - \E\{X\})^2}$$
+	
+	\HL
+\end{definition}
+
+우리가 아는 분산의 정의와 정확히 일치합니다. 즉, Measure Space로부터 복잡하게 유도되긴 했지만 실제 계산은 고등학교때 배우던 확률과 통계와 크게 다르지 않다는 것을 알 수 있습니다. 이제 또 다른 익숙한 개념을 새롭게 정의해봅시다.
+
+\begin{definition}[Joint Distribution \& Independence]
+	Let $X_1,\cdots,X_n$ be random variables. They induce the measure $\mu^{(n)}$ on the Borel $\sigma$-algebra of $\R^n$ with the property
+	$$\mu^{(n)}(B_1 \times \cdots \times B_n) = \P\{X_1 \in B_1, \cdots,X_n \in B_n \}, ~ B_1,\cdots,B_n \in \B$$
+	$\mu^{(n)}$ is called the \textbf{joint distribution} of random variables. Let $\mu_i$ be the distribution of $X_i$, the random variables $\{X_i\}_{i=1}^{n}$ are \textbf{independent} if $\mu^{(n)}$ is the product measure of $\{\mu_i\}_{i=1}^n$. The events $A_1, \cdots, A_n \in \F$ are independent if the random variables $I_{A_1}, \cdots, I_{A_n}$ are independent.
+	
+	\HL 
+\end{definition}
+
+위 정의는 한 마디로 요약하면 확률변수 $n$개의 분포가 각각의 확률변수들의 분포에 대해 곱측도(Product Measure)이면 확률변수들을 독립이라 부르겠다는 정의입니다. 우리가 알던 정의와 상당히 다른 것 같지만 확률측도로 변경하여 보면 위 정의는 다음 식으로 정리됩니다.
+
+$$\P\{X_1 \in B_1, \cdots,X_n \in B_n \} = \P\Mbk{X_1 \in B_1} \times \cdots \times \P\Mbk{X_n \in B_n}$$
+
+이제 우리가 아는 정의와 상당히 유사해졌습니다. 또한 위 정의는 단순히 확률 변수들의 독립 뿐만 아니라 사건들의 독립도 정의하였습니다. 특이하게도 각 사건들의 Indicator Function들이 독립이면 그 사건들도 독립이라고 정의되어 있는데 Indicator Function 역시 Measurable function이므로 확률 변수에 해당하니 정의 자체는 충분히 받아들일 수 있습니다. 위 정의를 받아들이면 아래의 중요한 정리를 쉽게 유도할 수 있습니다.
+
+\begin{theorem}[Independence with Expectation]
+	If $X_1,\cdots , X_n$ are independent and have finite expectations then
+	$$ \E \Mbk{X_1X_2\cdots X_n} = \E\Mbk{X_1} \cdots \E\Mbk{X_n}$$
+	
+	\HL
+\end{theorem}
+
+증명은 Independence, Product Measure의 정의들과 Fubini's theorem을 적용하면 쉽게 증명되니 생략하겠습니다.
+
+\newpage
+
+\subsection{Inequalities}
+
+\HS 이제 지루한 수학 단원의 마지막입니다. 앞으로 논리를 전개하는데 유용한 부등식들을 소개하고 마치도록 하겠습니다.
+
+\VS
+
+- Cauchy-Schwartz : $\displaystyle |\E(XY)| \leq \sqrt{\E(X^2)\E(Y^2)}$
+
+\vs
+
+- H{\"o}lder : $\displaystyle p,q \in (1,\infty),~\frac{1}{p} + \frac{1}{q} = 1 \Rightarrow \E(|XY|) \leq \Sbk{\E(|X^p|)}^{1/p} \cdot \Sbk{\E (|Y^q|)}^{1/q}$
+
+\vs
+
+- Markov : Given non-negative $X$, $\forall t > 0$, $\displaystyle \P(X\geq t) \leq \frac{\E(X)}{t}$
+
+\vs
+
+- Chebyshev : $\displaystyle \forall t > 0, ~\P(|X - \E X| \geq t) \leq \frac{\Var(X)}{t^2}$
+
+\vs
+
+- Chebyshev - Cantelli : $\displaystyle \forall t \geq 0,~ \P(X-\E X > t ) \leq \frac{\Var(X)}{\Var(X) + t^2}$
+
+\VS
+
+위의 부등식들도 상당히 중요하지만 다음 2개의 부등식은 특히나 중요하기에 굳이 정리로 정리하였습니다.
+
+\begin{theorem}[Jensen's Inequality]
+	If $f$ is a real-valued convex function on a finite or infinite interval of $\R$ and $X$ is a random variable with finite expectation taking its values in this interval. Then
+	$$f(\E(X)) \leq \E(f(X))$$
+	
+	\HL
+\end{theorem}
+
+\begin{theorem}[Association Inequality]
+	Let $X$ be a real-valued random variable and $f,g$ are real-valued function
+	
+	i) $f,g$ are monotone non-decreasing then
+	$$ \E\Mbk{f(X) g(X)} \geq \E\Mbk{f(X)}\E\Mbk{g(X)}$$
+	
+	ii) $f$ is monotone increasing and $g$ is monotone decreasing then
+	$$ \E\Mbk{f(X) g(X)} \leq \E\Mbk{f(X)}\E\Mbk{g(X)}$$
+	
+	\HL
+\end{theorem}
+
+그럼 이제 소소한 일탈을 마치고 다시 우리의 본분인 머신러닝으로 돌아가봅시다.
 %% \ackrule
 
 %\bibliographystyle{IEEEtran}
